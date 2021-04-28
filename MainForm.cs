@@ -382,6 +382,42 @@ namespace MiniWordPad
             }
         }
 
+        //Изменение цвета MainForm
+
+        private void белыйToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.BackColor = Color.White;
+            if (this.BackColor == Color.White)
+            {
+                FileNameLabel.ForeColor = Color.Black;
+                CloseWindowButton.ForeColor = Color.Black;
+                MaximizeWindowButton.ForeColor = Color.Black;
+                MinimizeWindowButton.ForeColor = Color.Black;
+                RedoButton.ForeColor = Color.Black;
+                UndoButton.ForeColor = Color.Black;
+                SaveButton.ForeColor = Color.Black;
+            }
+
+
+        }
+
+        //Изменение цвета MainForm
+        private void черныйToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            this.BackColor = Color.Black;
+            if (this.BackColor == Color.Black)
+            {
+                FileNameLabel.ForeColor = Color.White;
+                CloseWindowButton.ForeColor = Color.White;
+                MaximizeWindowButton.ForeColor = Color.White;
+                MinimizeWindowButton.ForeColor = Color.White;
+                RedoButton.ForeColor = Color.White;
+                UndoButton.ForeColor = Color.White;
+                SaveButton.ForeColor = Color.White;
+            }
+
+        }
+
         Rectangle BottomCursor { get { return new Rectangle(0, this.ClientSize.Height - _, this.ClientSize.Width, _); } }
         Rectangle RightCursor { get { return new Rectangle(this.ClientSize.Width - _, 0, _, this.ClientSize.Height); } }
         Rectangle TopLeft { get { return new Rectangle(0, 0, _, _); } }
