@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
-            this.panel1 = new System.Windows.Forms.Panel();
+            this.HeaderPanel = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
             this.FileNameLabel = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
@@ -81,7 +81,7 @@
             this.RichTextBoxEditor = new System.Windows.Forms.RichTextBox();
             this.PrintDocumentElement = new System.Drawing.Printing.PrintDocument();
             this.PrintDialogElement = new System.Windows.Forms.PrintDialog();
-            this.panel1.SuspendLayout();
+            this.HeaderPanel.SuspendLayout();
             this.panel4.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
@@ -89,20 +89,20 @@
             this.panel5.SuspendLayout();
             this.SuspendLayout();
             // 
-            // panel1
+            // HeaderPanel
             // 
-            this.panel1.Controls.Add(this.panel4);
-            this.panel1.Controls.Add(this.panel2);
-            this.panel1.Controls.Add(this.MinimizeWindowButton);
-            this.panel1.Controls.Add(this.MaximizeWindowButton);
-            this.panel1.Controls.Add(this.CloseWindowButton);
-            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.panel1.ForeColor = System.Drawing.Color.White;
-            this.panel1.Location = new System.Drawing.Point(4, 0);
-            this.panel1.Margin = new System.Windows.Forms.Padding(0);
-            this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(883, 30);
-            this.panel1.TabIndex = 0;
+            this.HeaderPanel.Controls.Add(this.panel4);
+            this.HeaderPanel.Controls.Add(this.panel2);
+            this.HeaderPanel.Controls.Add(this.MinimizeWindowButton);
+            this.HeaderPanel.Controls.Add(this.MaximizeWindowButton);
+            this.HeaderPanel.Controls.Add(this.CloseWindowButton);
+            this.HeaderPanel.Dock = System.Windows.Forms.DockStyle.Top;
+            this.HeaderPanel.ForeColor = System.Drawing.Color.White;
+            this.HeaderPanel.Location = new System.Drawing.Point(4, 0);
+            this.HeaderPanel.Margin = new System.Windows.Forms.Padding(0);
+            this.HeaderPanel.Name = "HeaderPanel";
+            this.HeaderPanel.Size = new System.Drawing.Size(883, 30);
+            this.HeaderPanel.TabIndex = 0;
             // 
             // panel4
             // 
@@ -242,7 +242,6 @@
             this.CloseWindowButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(17)))), ((int)(((byte)(35)))));
             this.CloseWindowButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.CloseWindowButton.Font = new System.Drawing.Font("Microsoft JhengHei UI Light", 12F);
-            this.CloseWindowButton.ForeColor = System.Drawing.Color.White;
             this.CloseWindowButton.Location = new System.Drawing.Point(853, 0);
             this.CloseWindowButton.Margin = new System.Windows.Forms.Padding(0);
             this.CloseWindowButton.Name = "CloseWindowButton";
@@ -341,7 +340,6 @@
             this.CopyButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(197)))), ((int)(((byte)(197)))));
             this.CopyButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.CopyButton.Font = new System.Drawing.Font("Microsoft JhengHei UI Light", 9F);
-            this.CopyButton.ForeColor = System.Drawing.Color.Black;
             this.CopyButton.Location = new System.Drawing.Point(75, 54);
             this.CopyButton.Name = "CopyButton";
             this.CopyButton.Size = new System.Drawing.Size(100, 23);
@@ -357,7 +355,6 @@
             this.CutButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(197)))), ((int)(((byte)(197)))));
             this.CutButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.CutButton.Font = new System.Drawing.Font("Microsoft JhengHei UI Light", 9F);
-            this.CutButton.ForeColor = System.Drawing.Color.Black;
             this.CutButton.Location = new System.Drawing.Point(75, 30);
             this.CutButton.Margin = new System.Windows.Forms.Padding(0);
             this.CutButton.Name = "CutButton";
@@ -601,14 +598,14 @@
             // настройкиToolStripMenuItem
             // 
             this.настройкиToolStripMenuItem.Name = "настройкиToolStripMenuItem";
-            this.настройкиToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.настройкиToolStripMenuItem.Size = new System.Drawing.Size(150, 22);
             this.настройкиToolStripMenuItem.Text = "&Настройки";
             this.настройкиToolStripMenuItem.Click += new System.EventHandler(this.настройкиToolStripMenuItem_Click);
             // 
             // параметрыToolStripMenuItem
             // 
             this.параметрыToolStripMenuItem.Name = "параметрыToolStripMenuItem";
-            this.параметрыToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.параметрыToolStripMenuItem.Size = new System.Drawing.Size(150, 22);
             this.параметрыToolStripMenuItem.Text = "&Параметры";
             // 
             // справкаToolStripMenuItem
@@ -656,6 +653,7 @@
             this.RichTextBoxEditor.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.RichTextBoxEditor.Dock = System.Windows.Forms.DockStyle.Fill;
             this.RichTextBoxEditor.EnableAutoDragDrop = true;
+            this.RichTextBoxEditor.ForeColor = System.Drawing.Color.Black;
             this.RichTextBoxEditor.ImeMode = System.Windows.Forms.ImeMode.NoControl;
             this.RichTextBoxEditor.Location = new System.Drawing.Point(50, 0);
             this.RichTextBoxEditor.Name = "RichTextBoxEditor";
@@ -683,8 +681,9 @@
             this.ControlBox = false;
             this.Controls.Add(this.panel5);
             this.Controls.Add(this.panel3);
-            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.HeaderPanel);
             this.Font = new System.Drawing.Font("Microsoft JhengHei UI Light", 10F);
+            this.ForeColor = System.Drawing.Color.Red;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.MainMenuStrip = this.menuStrip1;
             this.MinimumSize = new System.Drawing.Size(600, 500);
@@ -692,8 +691,8 @@
             this.Padding = new System.Windows.Forms.Padding(4, 0, 4, 4);
             this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.panel1.ResumeLayout(false);
-            this.panel1.PerformLayout();
+            this.HeaderPanel.ResumeLayout(false);
+            this.HeaderPanel.PerformLayout();
             this.panel4.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
@@ -706,7 +705,7 @@
 
         #endregion
 
-        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Panel HeaderPanel;
         private System.Windows.Forms.Button CloseWindowButton;
         private System.Windows.Forms.Button MinimizeWindowButton;
         private System.Windows.Forms.Button MaximizeWindowButton;
