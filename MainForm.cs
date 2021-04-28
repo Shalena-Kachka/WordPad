@@ -296,6 +296,43 @@ namespace MiniWordPad
         const int _ = 16;
         Rectangle TopCursor { get { return new Rectangle(0, 0, this.ClientSize.Width, _); } }
         Rectangle LeftCursor { get { return new Rectangle(0, 0, _, this.ClientSize.Height); } }
+
+        private void PastToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (Clipboard.GetDataObject().GetDataPresent(DataFormats.Text))
+                RichTextBoxEditor.Paste();
+        }
+
+        private void CopyToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (RichTextBoxEditor.SelectionLength > 0)
+                RichTextBoxEditor.Copy();
+        }
+
+        private void CutoolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+            if (RichTextBoxEditor.SelectionLength > 0)
+                RichTextBoxEditor.Cut();
+        }
+
+        private void SelectAllToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            RichTextBoxEditor.SelectAll();
+        }
+
+        private void RepitToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (RichTextBoxEditor.CanRedo == true)
+                if (RichTextBoxEditor.RedoActionName != "Delete")
+                    RichTextBoxEditor.Redo();
+        }
+
+        private void CancelToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            RichTextBoxEditor.Undo();
+        }
+
         Rectangle BottomCursor { get { return new Rectangle(0, this.ClientSize.Height - _, this.ClientSize.Width, _); } }
         Rectangle RightCursor { get { return new Rectangle(this.ClientSize.Width - _, 0, _, this.ClientSize.Height); } }
         Rectangle TopLeft { get { return new Rectangle(0, 0, _, _); } }
