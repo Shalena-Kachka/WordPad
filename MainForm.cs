@@ -13,6 +13,7 @@ using System.Windows.Forms;
 
 namespace MiniWordPad
 {
+    //проверка
     public partial class MainForm : Form
     {
         public string OpenedDocumentPath { get; set; } = "Новый документ"; //Путь к открытому документу
@@ -337,6 +338,48 @@ namespace MiniWordPad
         private void CancelToolStripMenuItem_Click(object sender, EventArgs e)
         {
             RichTextBoxEditor.Undo();
+        }
+
+        private void настройкиToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (IsOpened) //Если файл уже был открыт, просто сохранить по пути (проверив существование директории)
+                {
+                    var dirPath = OpenedDocumentPath.Substring(0, OpenedDocumentPath.LastIndexOf(Path.DirectorySeparatorChar) + 1);
+                    Directory.CreateDirectory(dirPath); //Если каталог не существует - создать
+
+                    RichTextBoxEditor.SaveFile(OpenedDocumentPath,
+                        OpenedDocumentPath.EndsWith(".rtf") ? RichTextBoxStreamType.RichText : RichTextBoxStreamType.PlainText); //Если .rtf, сохранить с форматированием
+                }
+                else //Файл новый, значит вызвать диалог для сохранения
+                {
+                    using (SaveFileDialog saveFileDialog = new SaveFileDialog())
+                    {
+                        saveFileDialog.InitialDirectory = DefaultSaveDirectory;
+                        saveFileDialog.Filter = "Текст с форматированием (*.rtf)|*.rtf|Простой текст (*.txt)|*.txt|Все файлы (*.*)|*.*";
+                        saveFileDialog.FilterIndex = 1;
+                        saveFileDialog.RestoreDirectory = true;
+
+                        if (saveFileDialog.ShowDialog() == DialogResult.OK)
+                        {
+                            var dirPath = saveFileDialog.FileName.Substring(0, saveFileDialog.FileName.LastIndexOf(Path.DirectorySeparatorChar) + 1);
+                            Directory.CreateDirectory(dirPath); //Если каталог не существует - создать
+
+                            RichTextBoxEditor.SaveFile(saveFileDialog.FileName,
+                                saveFileDialog.FileName.EndsWith(".rtf") ? RichTextBoxStreamType.RichText : RichTextBoxStreamType.PlainText); //Если .rtf, сохранить с форматированием
+
+                            OpenedDocumentPath = saveFileDialog.FileName;
+                            IsOpened = true;
+                            UpdatePath();
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+
+            }
         }
 
         Rectangle BottomCursor { get { return new Rectangle(0, this.ClientSize.Height - _, this.ClientSize.Width, _); } }
