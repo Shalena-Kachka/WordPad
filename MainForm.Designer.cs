@@ -40,9 +40,6 @@
             this.MaximizeWindowButton = new System.Windows.Forms.Button();
             this.CloseWindowButton = new System.Windows.Forms.Button();
             this.panel3 = new System.Windows.Forms.Panel();
-            this.SetUnderlineButton = new System.Windows.Forms.Button();
-            this.SetItalicButton = new System.Windows.Forms.Button();
-            this.SetBoldButton = new System.Windows.Forms.Button();
             this.panel6 = new System.Windows.Forms.Panel();
             this.FontSizeComboBox = new System.Windows.Forms.ComboBox();
             this.CopyButton = new System.Windows.Forms.Button();
@@ -73,6 +70,9 @@
             this.сервисToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.настройкиToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.параметрыToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.цветToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.белыйToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.черныйToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.справкаToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.содержаниеToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
@@ -81,9 +81,9 @@
             this.RichTextBoxEditor = new System.Windows.Forms.RichTextBox();
             this.PrintDocumentElement = new System.Drawing.Printing.PrintDocument();
             this.PrintDialogElement = new System.Windows.Forms.PrintDialog();
-            this.цветToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.белыйToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.черныйToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.checkBoxBold = new System.Windows.Forms.CheckBox();
+            this.checkBoxItalic = new System.Windows.Forms.CheckBox();
+            this.checkBoxUnderline = new System.Windows.Forms.CheckBox();
             this.HeaderPanel.SuspendLayout();
             this.panel4.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -258,11 +258,11 @@
             // panel3
             // 
             this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(241)))), ((int)(((byte)(241)))));
-            this.panel3.Controls.Add(this.SetUnderlineButton);
-            this.panel3.Controls.Add(this.SetItalicButton);
-            this.panel3.Controls.Add(this.SetBoldButton);
+            this.panel3.Controls.Add(this.checkBoxUnderline);
             this.panel3.Controls.Add(this.panel6);
+            this.panel3.Controls.Add(this.checkBoxItalic);
             this.panel3.Controls.Add(this.FontSizeComboBox);
+            this.panel3.Controls.Add(this.checkBoxBold);
             this.panel3.Controls.Add(this.CopyButton);
             this.panel3.Controls.Add(this.CutButton);
             this.panel3.Controls.Add(this.FontSelectorComboBox);
@@ -276,52 +276,6 @@
             this.panel3.Size = new System.Drawing.Size(883, 100);
             this.panel3.TabIndex = 1;
             // 
-            // SetUnderlineButton
-            // 
-            this.SetUnderlineButton.FlatAppearance.BorderSize = 0;
-            this.SetUnderlineButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(197)))), ((int)(((byte)(197)))));
-            this.SetUnderlineButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.SetUnderlineButton.Font = new System.Drawing.Font("Microsoft JhengHei UI", 9.75F, System.Drawing.FontStyle.Underline, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.SetUnderlineButton.ForeColor = System.Drawing.Color.Black;
-            this.SetUnderlineButton.Location = new System.Drawing.Point(239, 60);
-            this.SetUnderlineButton.Margin = new System.Windows.Forms.Padding(0);
-            this.SetUnderlineButton.Name = "SetUnderlineButton";
-            this.SetUnderlineButton.Size = new System.Drawing.Size(25, 25);
-            this.SetUnderlineButton.TabIndex = 9;
-            this.SetUnderlineButton.Text = "Ч";
-            this.SetUnderlineButton.UseCompatibleTextRendering = true;
-            this.SetUnderlineButton.UseVisualStyleBackColor = true;
-            // 
-            // SetItalicButton
-            // 
-            this.SetItalicButton.FlatAppearance.BorderSize = 0;
-            this.SetItalicButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(197)))), ((int)(((byte)(197)))));
-            this.SetItalicButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.SetItalicButton.Font = new System.Drawing.Font("Microsoft JhengHei UI", 9.75F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.SetItalicButton.ForeColor = System.Drawing.Color.Black;
-            this.SetItalicButton.Location = new System.Drawing.Point(214, 60);
-            this.SetItalicButton.Margin = new System.Windows.Forms.Padding(0);
-            this.SetItalicButton.Name = "SetItalicButton";
-            this.SetItalicButton.Size = new System.Drawing.Size(25, 25);
-            this.SetItalicButton.TabIndex = 8;
-            this.SetItalicButton.Text = "К";
-            this.SetItalicButton.UseVisualStyleBackColor = true;
-            // 
-            // SetBoldButton
-            // 
-            this.SetBoldButton.FlatAppearance.BorderSize = 0;
-            this.SetBoldButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(197)))), ((int)(((byte)(197)))));
-            this.SetBoldButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.SetBoldButton.Font = new System.Drawing.Font("Microsoft JhengHei UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.SetBoldButton.ForeColor = System.Drawing.Color.Black;
-            this.SetBoldButton.Location = new System.Drawing.Point(189, 60);
-            this.SetBoldButton.Margin = new System.Windows.Forms.Padding(0);
-            this.SetBoldButton.Name = "SetBoldButton";
-            this.SetBoldButton.Size = new System.Drawing.Size(25, 25);
-            this.SetBoldButton.TabIndex = 7;
-            this.SetBoldButton.Text = "Ж";
-            this.SetBoldButton.UseVisualStyleBackColor = true;
-            // 
             // panel6
             // 
             this.panel6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(210)))), ((int)(((byte)(210)))));
@@ -333,6 +287,7 @@
             // 
             // FontSizeComboBox
             // 
+            this.FontSizeComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.FontSizeComboBox.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.FontSizeComboBox.FormattingEnabled = true;
             this.FontSizeComboBox.Location = new System.Drawing.Point(313, 31);
@@ -340,7 +295,6 @@
             this.FontSizeComboBox.Name = "FontSizeComboBox";
             this.FontSizeComboBox.Size = new System.Drawing.Size(52, 23);
             this.FontSizeComboBox.TabIndex = 5;
-            this.FontSizeComboBox.Text = "12";
             // 
             // CopyButton
             // 
@@ -377,6 +331,7 @@
             // 
             // FontSelectorComboBox
             // 
+            this.FontSelectorComboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.FontSelectorComboBox.Font = new System.Drawing.Font("Calibri", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.FontSelectorComboBox.FormattingEnabled = true;
             this.FontSelectorComboBox.Location = new System.Drawing.Point(189, 31);
@@ -384,7 +339,6 @@
             this.FontSelectorComboBox.Name = "FontSelectorComboBox";
             this.FontSelectorComboBox.Size = new System.Drawing.Size(124, 23);
             this.FontSelectorComboBox.TabIndex = 2;
-            this.FontSelectorComboBox.Text = "Calibri";
             // 
             // PasteButton
             // 
@@ -618,9 +572,31 @@
             this.параметрыToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.цветToolStripMenuItem});
             this.параметрыToolStripMenuItem.Name = "параметрыToolStripMenuItem";
-            this.параметрыToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.параметрыToolStripMenuItem.Size = new System.Drawing.Size(150, 22);
             this.параметрыToolStripMenuItem.Text = "&Параметры";
-         
+            // 
+            // цветToolStripMenuItem
+            // 
+            this.цветToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.белыйToolStripMenuItem,
+            this.черныйToolStripMenuItem});
+            this.цветToolStripMenuItem.Name = "цветToolStripMenuItem";
+            this.цветToolStripMenuItem.Size = new System.Drawing.Size(108, 22);
+            this.цветToolStripMenuItem.Text = "Цвет";
+            // 
+            // белыйToolStripMenuItem
+            // 
+            this.белыйToolStripMenuItem.Name = "белыйToolStripMenuItem";
+            this.белыйToolStripMenuItem.Size = new System.Drawing.Size(127, 22);
+            this.белыйToolStripMenuItem.Text = "Белый";
+            this.белыйToolStripMenuItem.Click += new System.EventHandler(this.белыйToolStripMenuItem_Click);
+            // 
+            // черныйToolStripMenuItem
+            // 
+            this.черныйToolStripMenuItem.Name = "черныйToolStripMenuItem";
+            this.черныйToolStripMenuItem.Size = new System.Drawing.Size(127, 22);
+            this.черныйToolStripMenuItem.Text = "Черный";
+            this.черныйToolStripMenuItem.Click += new System.EventHandler(this.черныйToolStripMenuItem_Click);
             // 
             // справкаToolStripMenuItem
             // 
@@ -674,6 +650,7 @@
             this.RichTextBoxEditor.Size = new System.Drawing.Size(783, 375);
             this.RichTextBoxEditor.TabIndex = 0;
             this.RichTextBoxEditor.Text = "Привет мир\n\nТестовый набор слов для проверки отображения текстбокса";
+            this.RichTextBoxEditor.SelectionChanged += new System.EventHandler(this.RichTextBoxEditor_SelectionChanged);
             // 
             // PrintDocumentElement
             // 
@@ -687,28 +664,57 @@
             this.PrintDialogElement.Document = this.PrintDocumentElement;
             this.PrintDialogElement.UseEXDialog = true;
             // 
-            // цветToolStripMenuItem
+            // checkBoxBold
             // 
-            this.цветToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.белыйToolStripMenuItem,
-            this.черныйToolStripMenuItem});
-            this.цветToolStripMenuItem.Name = "цветToolStripMenuItem";
-            this.цветToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.цветToolStripMenuItem.Text = "Цвет";
+            this.checkBoxBold.Appearance = System.Windows.Forms.Appearance.Button;
+            this.checkBoxBold.AutoSize = true;
+            this.checkBoxBold.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.checkBoxBold.CheckAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.checkBoxBold.FlatAppearance.CheckedBackColor = System.Drawing.Color.Gray;
+            this.checkBoxBold.FlatStyle = System.Windows.Forms.FlatStyle.System;
+            this.checkBoxBold.Font = new System.Drawing.Font("Microsoft JhengHei UI Light", 10F, System.Drawing.FontStyle.Bold);
+            this.checkBoxBold.Location = new System.Drawing.Point(189, 60);
+            this.checkBoxBold.Name = "checkBoxBold";
+            this.checkBoxBold.Size = new System.Drawing.Size(32, 28);
+            this.checkBoxBold.TabIndex = 1;
+            this.checkBoxBold.Text = "Ж";
+            this.checkBoxBold.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.checkBoxBold.UseVisualStyleBackColor = true;
             // 
-            // белыйToolStripMenuItem
+            // checkBoxItalic
             // 
-            this.белыйToolStripMenuItem.Name = "белыйToolStripMenuItem";
-            this.белыйToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.белыйToolStripMenuItem.Text = "Белый";
-            this.белыйToolStripMenuItem.Click += new System.EventHandler(this.белыйToolStripMenuItem_Click);
+            this.checkBoxItalic.Appearance = System.Windows.Forms.Appearance.Button;
+            this.checkBoxItalic.AutoSize = true;
+            this.checkBoxItalic.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.checkBoxItalic.CheckAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.checkBoxItalic.FlatAppearance.CheckedBackColor = System.Drawing.Color.Gray;
+            this.checkBoxItalic.FlatStyle = System.Windows.Forms.FlatStyle.System;
+            this.checkBoxItalic.Font = new System.Drawing.Font("Microsoft JhengHei UI Light", 10F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))));
+            this.checkBoxItalic.Location = new System.Drawing.Point(227, 60);
+            this.checkBoxItalic.Name = "checkBoxItalic";
+            this.checkBoxItalic.Size = new System.Drawing.Size(27, 28);
+            this.checkBoxItalic.TabIndex = 2;
+            this.checkBoxItalic.Text = "К";
+            this.checkBoxItalic.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.checkBoxItalic.UseVisualStyleBackColor = true;
             // 
-            // черныйToolStripMenuItem
+            // checkBoxUnderline
             // 
-            this.черныйToolStripMenuItem.Name = "черныйToolStripMenuItem";
-            this.черныйToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
-            this.черныйToolStripMenuItem.Text = "Черный";
-            this.черныйToolStripMenuItem.Click += new System.EventHandler(this.черныйToolStripMenuItem_Click);
+            this.checkBoxUnderline.Appearance = System.Windows.Forms.Appearance.Button;
+            this.checkBoxUnderline.AutoSize = true;
+            this.checkBoxUnderline.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.checkBoxUnderline.CheckAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.checkBoxUnderline.FlatAppearance.CheckedBackColor = System.Drawing.Color.Gray;
+            this.checkBoxUnderline.FlatStyle = System.Windows.Forms.FlatStyle.System;
+            this.checkBoxUnderline.Font = new System.Drawing.Font("Microsoft JhengHei UI Light", 10F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))));
+            this.checkBoxUnderline.Location = new System.Drawing.Point(257, 60);
+            this.checkBoxUnderline.Margin = new System.Windows.Forms.Padding(0);
+            this.checkBoxUnderline.Name = "checkBoxUnderline";
+            this.checkBoxUnderline.Size = new System.Drawing.Size(28, 28);
+            this.checkBoxUnderline.TabIndex = 3;
+            this.checkBoxUnderline.Text = "Ч";
+            this.checkBoxUnderline.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.checkBoxUnderline.UseVisualStyleBackColor = true;
             // 
             // MainForm
             // 
@@ -733,6 +739,7 @@
             this.panel4.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
+            this.panel3.PerformLayout();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.panel5.ResumeLayout(false);
@@ -788,15 +795,15 @@
         private System.Windows.Forms.Button CutButton;
         private System.Windows.Forms.ComboBox FontSelectorComboBox;
         private System.Windows.Forms.ComboBox FontSizeComboBox;
-        private System.Windows.Forms.Button SetUnderlineButton;
-        private System.Windows.Forms.Button SetItalicButton;
-        private System.Windows.Forms.Button SetBoldButton;
         private System.Windows.Forms.Panel panel6;
         private System.Drawing.Printing.PrintDocument PrintDocumentElement;
         private System.Windows.Forms.PrintDialog PrintDialogElement;
         private System.Windows.Forms.ToolStripMenuItem цветToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem белыйToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem черныйToolStripMenuItem;
+        private System.Windows.Forms.CheckBox checkBoxUnderline;
+        private System.Windows.Forms.CheckBox checkBoxItalic;
+        private System.Windows.Forms.CheckBox checkBoxBold;
     }
 }
 

@@ -18,17 +18,14 @@ namespace MiniWordPad
     {
         public string OpenedDocumentPath { get; set; } = "Новый документ"; //Путь к открытому документу
         public bool IsOpened { get; set; } = false; //Если false, то при нажатии на сохранить затребовать путь к файлу
-
+        List<string> _FontsName = new List<string>();
+        List<float> _FontSize = new List<float>();
         public string DefaultSaveDirectory { get; set; } = "c:\\";
 
         public MainForm()
         {
             InitializeComponent();
-            FontFamily[] fontList = new System.Drawing.Text.InstalledFontCollection().Families;
-            foreach (var item in fontList)
-            {
-                FontSelectorComboBox.Items.Add(item.Name);
-            }
+            InicializeFonts();
         }
 
         /// <summary>
@@ -446,5 +443,46 @@ namespace MiniWordPad
             }
         }
         #endregion
+
+        /// <summary>
+        ///метод запонения шрифтов и размеров
+        /// </summary>
+        private void InicializeFonts()
+        {
+            FontFamily[] fontList = new System.Drawing.Text.InstalledFontCollection().Families;
+            foreach (var item in fontList)            
+                _FontsName.Add(item.Name);
+
+            FontSelectorComboBox.DataSource = _FontsName;
+            FontSelectorComboBox.SelectedIndex = 10;
+            for (int i = 1; i < 50; i++)
+                _FontSize.Add(i);
+            FontSizeComboBox.DataSource = _FontSize;
+            FontSizeComboBox.SelectedIndex = 10;
+           
+        }
+
+
+        private void RichTextBoxEditor_SelectionChanged(object sender, EventArgs e)
+        {
+            if (checkBoxBold.Checked == false && checkBoxItalic.Checked==false && checkBoxUnderline.Checked == false)
+                RichTextBoxEditor.SelectionFont = new Font(FontSelectorComboBox.SelectedItem.ToString(), (float)FontSizeComboBox.SelectedItem);
+            if (checkBoxBold.Checked == true && checkBoxItalic.Checked == false && checkBoxUnderline.Checked == false)
+                RichTextBoxEditor.SelectionFont = new Font(FontSelectorComboBox.SelectedItem.ToString(), (float)FontSizeComboBox.SelectedItem, FontStyle.Bold);
+            if (checkBoxBold.Checked == false && checkBoxItalic.Checked == true && checkBoxUnderline.Checked == false)
+                RichTextBoxEditor.SelectionFont = new Font(FontSelectorComboBox.SelectedItem.ToString(), (float)FontSizeComboBox.SelectedItem, FontStyle.Italic);
+            if (checkBoxBold.Checked == false && checkBoxItalic.Checked == false && checkBoxUnderline.Checked == true)
+                RichTextBoxEditor.SelectionFont = new Font(FontSelectorComboBox.SelectedItem.ToString(), (float)FontSizeComboBox.SelectedItem, FontStyle.Underline);
+           
+            if (checkBoxBold.Checked == false && checkBoxItalic.Checked == true && checkBoxUnderline.Checked == true)
+                RichTextBoxEditor.SelectionFont = new Font(FontSelectorComboBox.SelectedItem.ToString(), (float)FontSizeComboBox.SelectedItem, (FontStyle.Underline | FontStyle.Italic));
+            if (checkBoxBold.Checked == true && checkBoxItalic.Checked == false && checkBoxUnderline.Checked == true)
+                RichTextBoxEditor.SelectionFont = new Font(FontSelectorComboBox.SelectedItem.ToString(), (float)FontSizeComboBox.SelectedItem, (FontStyle.Underline | FontStyle.Bold));
+            if (checkBoxBold.Checked == true && checkBoxItalic.Checked == true && checkBoxUnderline.Checked == false)
+                RichTextBoxEditor.SelectionFont = new Font(FontSelectorComboBox.SelectedItem.ToString(), (float)FontSizeComboBox.SelectedItem, (FontStyle.Bold | FontStyle.Italic));
+            if (checkBoxBold.Checked == true && checkBoxItalic.Checked == true && checkBoxUnderline.Checked == true)
+                RichTextBoxEditor.SelectionFont = new Font(FontSelectorComboBox.SelectedItem.ToString(), (float)FontSizeComboBox.SelectedItem, (FontStyle.Bold | FontStyle.Italic | FontStyle.Underline));
+
+        }
     }
 }
