@@ -21,6 +21,11 @@ namespace MiniWordPad
         public MainForm()
         {
             InitializeComponent();
+            FontFamily[] fontList = new System.Drawing.Text.InstalledFontCollection().Families;
+            foreach (var item in fontList)
+            {
+                FontSelectorComboBox.Items.Add(item.Name);
+            }
         }
 
         /// <summary>
