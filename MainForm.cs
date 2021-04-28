@@ -13,11 +13,13 @@ using System.Windows.Forms;
 
 namespace MiniWordPad
 {
-    
+    //проверка
     public partial class MainForm : Form
     {
         public string OpenedDocumentPath { get; set; } = "Новый документ"; //Путь к открытому документу
         public bool IsOpened { get; set; } = false; //Если false, то при нажатии на сохранить затребовать путь к файлу
+
+        public string DefaultSaveDirectory { get; set; } = "c:\\";
 
         public MainForm()
         {
@@ -65,7 +67,7 @@ namespace MiniWordPad
         {
             using (SaveFileDialog saveFileDialog = new SaveFileDialog())
             {
-                saveFileDialog.InitialDirectory = "c:\\";
+                saveFileDialog.InitialDirectory = DefaultSaveDirectory;
                 saveFileDialog.Filter = "Текст с форматированием (*.rtf)|*.rtf|Простой текст (*.txt)|*.txt|Все файлы (*.*)|*.*";
                 saveFileDialog.FilterIndex = 1;
                 saveFileDialog.RestoreDirectory = true;
@@ -180,7 +182,7 @@ namespace MiniWordPad
                 {
                     using (SaveFileDialog saveFileDialog = new SaveFileDialog())
                     {
-                        saveFileDialog.InitialDirectory = "c:\\";
+                        saveFileDialog.InitialDirectory = DefaultSaveDirectory;
                         saveFileDialog.Filter = "Текст с форматированием (*.rtf)|*.rtf|Простой текст (*.txt)|*.txt|Все файлы (*.*)|*.*";
                         saveFileDialog.FilterIndex = 1;
                         saveFileDialog.RestoreDirectory = true;
@@ -213,7 +215,7 @@ namespace MiniWordPad
         {
             using (OpenFileDialog openFileDialog = new OpenFileDialog())
             {
-                openFileDialog.InitialDirectory = "c:\\";
+                openFileDialog.InitialDirectory = DefaultSaveDirectory;
                 openFileDialog.Filter = "Документы (*.rtf;*.pdf;*.txt)|*.rtf;*.pdf;*.txt|Все файлы (*.*)|*.*";
                 openFileDialog.FilterIndex = 1;
                 openFileDialog.RestoreDirectory = true;
@@ -258,7 +260,6 @@ namespace MiniWordPad
                     }
                 }
             }
-
         }
 
         /// <summary>
@@ -339,28 +340,45 @@ namespace MiniWordPad
             RichTextBoxEditor.Undo();
         }
 
-
         private void настройкиToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            using (SaveFileDialog saveFileDialog = new SaveFileDialog())
+            try
             {
-                saveFileDialog.InitialDirectory = "c:\\";
-                saveFileDialog.Filter = "Текст с форматированием (*.rtf)|*.rtf|Простой текст (*.txt)|*.txt|Все файлы (*.*)|*.*";
-                saveFileDialog.FilterIndex = 1;
-                saveFileDialog.RestoreDirectory = true;
-
-                if (saveFileDialog.ShowDialog() == DialogResult.OK)
+                if (IsOpened) //Если файл уже был открыт, просто сохранить по пути (проверив существование директории)
                 {
-                    var dirPath = saveFileDialog.FileName.Substring(0, saveFileDialog.FileName.LastIndexOf(Path.DirectorySeparatorChar) + 1);
+                    var dirPath = OpenedDocumentPath.Substring(0, OpenedDocumentPath.LastIndexOf(Path.DirectorySeparatorChar) + 1);
                     Directory.CreateDirectory(dirPath); //Если каталог не существует - создать
 
-                    RichTextBoxEditor.SaveFile(saveFileDialog.FileName,
-                        saveFileDialog.FileName.EndsWith(".rtf") ? RichTextBoxStreamType.RichText : RichTextBoxStreamType.PlainText); //Если .rtf, сохранить с форматированием
-
-                    OpenedDocumentPath = saveFileDialog.FileName;
-                    IsOpened = true;
-                    UpdatePath();
+                    RichTextBoxEditor.SaveFile(OpenedDocumentPath,
+                        OpenedDocumentPath.EndsWith(".rtf") ? RichTextBoxStreamType.RichText : RichTextBoxStreamType.PlainText); //Если .rtf, сохранить с форматированием
                 }
+                else //Файл новый, значит вызвать диалог для сохранения
+                {
+                    using (SaveFileDialog saveFileDialog = new SaveFileDialog())
+                    {
+                        saveFileDialog.InitialDirectory = DefaultSaveDirectory;
+                        saveFileDialog.Filter = "Текст с форматированием (*.rtf)|*.rtf|Простой текст (*.txt)|*.txt|Все файлы (*.*)|*.*";
+                        saveFileDialog.FilterIndex = 1;
+                        saveFileDialog.RestoreDirectory = true;
+
+                        if (saveFileDialog.ShowDialog() == DialogResult.OK)
+                        {
+                            var dirPath = saveFileDialog.FileName.Substring(0, saveFileDialog.FileName.LastIndexOf(Path.DirectorySeparatorChar) + 1);
+                            Directory.CreateDirectory(dirPath); //Если каталог не существует - создать
+
+                            RichTextBoxEditor.SaveFile(saveFileDialog.FileName,
+                                saveFileDialog.FileName.EndsWith(".rtf") ? RichTextBoxStreamType.RichText : RichTextBoxStreamType.PlainText); //Если .rtf, сохранить с форматированием
+
+                            OpenedDocumentPath = saveFileDialog.FileName;
+                            IsOpened = true;
+                            UpdatePath();
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+
             }
         }
 

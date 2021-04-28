@@ -93,7 +93,6 @@
             // 
             // panel1
             // 
-            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(102)))), ((int)(((byte)(203)))));
             this.panel1.Controls.Add(this.panel4);
             this.panel1.Controls.Add(this.panel2);
             this.panel1.Controls.Add(this.MinimizeWindowButton);
@@ -160,6 +159,7 @@
             this.RedoButton.TabIndex = 5;
             this.RedoButton.Text = "↪";
             this.RedoButton.UseVisualStyleBackColor = false;
+            this.RedoButton.Click += new System.EventHandler(this.RepitToolStripMenuItem_Click);
             // 
             // UndoButton
             // 
@@ -178,6 +178,7 @@
             this.UndoButton.TabIndex = 6;
             this.UndoButton.Text = "↩";
             this.UndoButton.UseVisualStyleBackColor = false;
+            this.UndoButton.Click += new System.EventHandler(this.CancelToolStripMenuItem_Click);
             // 
             // SaveButton
             // 
@@ -350,6 +351,7 @@
             this.CopyButton.Text = "⎘ Копировать";
             this.CopyButton.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.CopyButton.UseVisualStyleBackColor = true;
+            this.CopyButton.Click += new System.EventHandler(this.CopyToolStripMenuItem_Click);
             // 
             // CutButton
             // 
@@ -366,6 +368,7 @@
             this.CutButton.Text = "✂️ Вырезать";
             this.CutButton.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.CutButton.UseVisualStyleBackColor = true;
+            this.CutButton.Click += new System.EventHandler(this.CutoolStripMenuItem_Click);
             // 
             // FontSelectorComboBox
             // 
@@ -395,6 +398,7 @@
             this.PasteButton.Text = "Вставить";
             this.PasteButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.PasteButton.UseVisualStyleBackColor = true;
+            this.PasteButton.Click += new System.EventHandler(this.PastToolStripMenuItem_Click);
             // 
             // menuStrip1
             // 
