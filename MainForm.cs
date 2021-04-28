@@ -13,6 +13,7 @@ using System.Windows.Forms;
 
 namespace MiniWordPad
 {
+    //проверка
     public partial class MainForm : Form
     {
         public string OpenedDocumentPath { get; set; } = "Новый документ"; //Путь к открытому документу
