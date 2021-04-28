@@ -13,11 +13,12 @@ using System.Windows.Forms;
 
 namespace MiniWordPad
 {
-    //проверка
     public partial class MainForm : Form
     {
         public string OpenedDocumentPath { get; set; } = "Новый документ"; //Путь к открытому документу
         public bool IsOpened { get; set; } = false; //Если false, то при нажатии на сохранить затребовать путь к файлу
+
+        public string DefaultSaveDirectory { get; set; } = "c:\\";
 
         public MainForm()
         {
@@ -65,7 +66,7 @@ namespace MiniWordPad
         {
             using (SaveFileDialog saveFileDialog = new SaveFileDialog())
             {
-                saveFileDialog.InitialDirectory = "c:\\";
+                saveFileDialog.InitialDirectory = DefaultSaveDirectory;
                 saveFileDialog.Filter = "Текст с форматированием (*.rtf)|*.rtf|Простой текст (*.txt)|*.txt|Все файлы (*.*)|*.*";
                 saveFileDialog.FilterIndex = 1;
                 saveFileDialog.RestoreDirectory = true;
@@ -180,7 +181,7 @@ namespace MiniWordPad
                 {
                     using (SaveFileDialog saveFileDialog = new SaveFileDialog())
                     {
-                        saveFileDialog.InitialDirectory = "c:\\";
+                        saveFileDialog.InitialDirectory = DefaultSaveDirectory;
                         saveFileDialog.Filter = "Текст с форматированием (*.rtf)|*.rtf|Простой текст (*.txt)|*.txt|Все файлы (*.*)|*.*";
                         saveFileDialog.FilterIndex = 1;
                         saveFileDialog.RestoreDirectory = true;
@@ -213,7 +214,7 @@ namespace MiniWordPad
         {
             using (OpenFileDialog openFileDialog = new OpenFileDialog())
             {
-                openFileDialog.InitialDirectory = "c:\\";
+                openFileDialog.InitialDirectory = DefaultSaveDirectory;
                 openFileDialog.Filter = "Документы (*.rtf;*.pdf;*.txt)|*.rtf;*.pdf;*.txt|Все файлы (*.*)|*.*";
                 openFileDialog.FilterIndex = 1;
                 openFileDialog.RestoreDirectory = true;
@@ -258,7 +259,6 @@ namespace MiniWordPad
                     }
                 }
             }
-
         }
 
         /// <summary>
