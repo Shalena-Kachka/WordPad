@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             this.HeaderPanel = new System.Windows.Forms.Panel();
             this.panel4 = new System.Windows.Forms.Panel();
@@ -84,6 +85,20 @@
             this.RichTextBoxEditor = new System.Windows.Forms.RichTextBox();
             this.PrintDocumentElement = new System.Drawing.Printing.PrintDocument();
             this.PrintDialogElement = new System.Windows.Forms.PrintDialog();
+            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
+            this.toolTip2 = new System.Windows.Forms.ToolTip(this.components);
+            this.toolTip3 = new System.Windows.Forms.ToolTip(this.components);
+            this.toolTip4 = new System.Windows.Forms.ToolTip(this.components);
+            this.toolTip5 = new System.Windows.Forms.ToolTip(this.components);
+            this.toolTip6 = new System.Windows.Forms.ToolTip(this.components);
+            this.toolTip7 = new System.Windows.Forms.ToolTip(this.components);
+            this.toolTip8 = new System.Windows.Forms.ToolTip(this.components);
+            this.toolTip9 = new System.Windows.Forms.ToolTip(this.components);
+            this.toolTip10 = new System.Windows.Forms.ToolTip(this.components);
+            this.toolTip11 = new System.Windows.Forms.ToolTip(this.components);
+            this.toolTip12 = new System.Windows.Forms.ToolTip(this.components);
+            this.toolTip13 = new System.Windows.Forms.ToolTip(this.components);
+            this.toolTip14 = new System.Windows.Forms.ToolTip(this.components);
             this.HeaderPanel.SuspendLayout();
             this.panel4.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -160,6 +175,7 @@
             this.RedoButton.Size = new System.Drawing.Size(30, 30);
             this.RedoButton.TabIndex = 5;
             this.RedoButton.Text = "↪";
+            this.toolTip3.SetToolTip(this.RedoButton, "Повтор действия.");
             this.RedoButton.UseVisualStyleBackColor = false;
             this.RedoButton.Click += new System.EventHandler(this.RepitToolStripMenuItem_Click);
             // 
@@ -179,6 +195,7 @@
             this.UndoButton.Size = new System.Drawing.Size(30, 30);
             this.UndoButton.TabIndex = 6;
             this.UndoButton.Text = "↩";
+            this.toolTip2.SetToolTip(this.UndoButton, "Отмена действия.");
             this.UndoButton.UseVisualStyleBackColor = false;
             this.UndoButton.Click += new System.EventHandler(this.CancelToolStripMenuItem_Click);
             // 
@@ -198,6 +215,7 @@
             this.SaveButton.Size = new System.Drawing.Size(30, 30);
             this.SaveButton.TabIndex = 4;
             this.SaveButton.Text = "💾";
+            this.toolTip1.SetToolTip(this.SaveButton, "Сохранение активного документа.");
             this.SaveButton.UseVisualStyleBackColor = false;
             this.SaveButton.Click += new System.EventHandler(this.SaveMenuButton_Click);
             // 
@@ -216,6 +234,7 @@
             this.MinimizeWindowButton.Size = new System.Drawing.Size(30, 30);
             this.MinimizeWindowButton.TabIndex = 2;
             this.MinimizeWindowButton.Text = "_";
+            this.toolTip12.SetToolTip(this.MinimizeWindowButton, "Свернуть");
             this.MinimizeWindowButton.UseVisualStyleBackColor = false;
             this.MinimizeWindowButton.Click += new System.EventHandler(this.MaximizeMinimizeButton);
             // 
@@ -234,6 +253,7 @@
             this.MaximizeWindowButton.Size = new System.Drawing.Size(30, 30);
             this.MaximizeWindowButton.TabIndex = 1;
             this.MaximizeWindowButton.Text = "O";
+            this.toolTip13.SetToolTip(this.MaximizeWindowButton, "Развернуть");
             this.MaximizeWindowButton.UseVisualStyleBackColor = false;
             this.MaximizeWindowButton.Click += new System.EventHandler(this.MaximizeMinimizeButton);
             // 
@@ -252,6 +272,7 @@
             this.CloseWindowButton.Size = new System.Drawing.Size(30, 30);
             this.CloseWindowButton.TabIndex = 0;
             this.CloseWindowButton.Text = "X";
+            this.toolTip14.SetToolTip(this.CloseWindowButton, "Закрыть");
             this.CloseWindowButton.UseVisualStyleBackColor = false;
             this.CloseWindowButton.Click += new System.EventHandler(this.CloseWindowButton_Click);
             // 
@@ -292,6 +313,7 @@
             this.checkBoxUnderline.TabIndex = 3;
             this.checkBoxUnderline.Text = "Ч";
             this.checkBoxUnderline.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.toolTip11.SetToolTip(this.checkBoxUnderline, "Подчеркнуть текст.");
             this.checkBoxUnderline.UseVisualStyleBackColor = true;
             // 
             // panel6
@@ -318,6 +340,7 @@
             this.checkBoxItalic.TabIndex = 2;
             this.checkBoxItalic.Text = "К";
             this.checkBoxItalic.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.toolTip10.SetToolTip(this.checkBoxItalic, "Выбор курсива.");
             this.checkBoxItalic.UseVisualStyleBackColor = true;
             // 
             // FontSizeComboBox
@@ -330,6 +353,7 @@
             this.FontSizeComboBox.Name = "FontSizeComboBox";
             this.FontSizeComboBox.Size = new System.Drawing.Size(52, 23);
             this.FontSizeComboBox.TabIndex = 5;
+            this.toolTip8.SetToolTip(this.FontSizeComboBox, "Изменить размер шрифта.");
             // 
             // checkBoxBold
             // 
@@ -346,6 +370,7 @@
             this.checkBoxBold.TabIndex = 1;
             this.checkBoxBold.Text = "Ж";
             this.checkBoxBold.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.toolTip9.SetToolTip(this.checkBoxBold, "Сделать полужирный текст.");
             this.checkBoxBold.UseVisualStyleBackColor = true;
             // 
             // CopyButton
@@ -361,6 +386,7 @@
             this.CopyButton.TabIndex = 4;
             this.CopyButton.Text = "⎘ Копировать";
             this.CopyButton.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.toolTip6.SetToolTip(this.CopyButton, "Копирование выделенного фрагмента в буфер обмена");
             this.CopyButton.UseVisualStyleBackColor = true;
             this.CopyButton.Click += new System.EventHandler(this.CopyToolStripMenuItem_Click);
             // 
@@ -378,6 +404,7 @@
             this.CutButton.TabIndex = 3;
             this.CutButton.Text = "✂️ Вырезать";
             this.CutButton.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            this.toolTip5.SetToolTip(this.CutButton, "Перемещение выделенного фрагмента в буфер обмена.");
             this.CutButton.UseVisualStyleBackColor = true;
             this.CutButton.Click += new System.EventHandler(this.CutoolStripMenuItem_Click);
             // 
@@ -391,6 +418,7 @@
             this.FontSelectorComboBox.Name = "FontSelectorComboBox";
             this.FontSelectorComboBox.Size = new System.Drawing.Size(124, 23);
             this.FontSelectorComboBox.TabIndex = 2;
+            this.toolTip7.SetToolTip(this.FontSelectorComboBox, "Выбор нового шрифта.");
             // 
             // PasteButton
             // 
@@ -409,6 +437,7 @@
             this.PasteButton.TabIndex = 0;
             this.PasteButton.Text = "Вставить";
             this.PasteButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.toolTip4.SetToolTip(this.PasteButton, "Вставка содержимого из буфера обмена.");
             this.PasteButton.UseVisualStyleBackColor = true;
             this.PasteButton.Click += new System.EventHandler(this.PastToolStripMenuItem_Click);
             // 
@@ -426,6 +455,7 @@
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.RenderMode = System.Windows.Forms.ToolStripRenderMode.System;
+            this.menuStrip1.ShowItemToolTips = true;
             this.menuStrip1.Size = new System.Drawing.Size(883, 24);
             this.menuStrip1.TabIndex = 1;
             this.menuStrip1.Text = "menuStrip1";
@@ -446,6 +476,8 @@
             this.файлToolStripMenuItem.Name = "файлToolStripMenuItem";
             this.файлToolStripMenuItem.Size = new System.Drawing.Size(54, 20);
             this.файлToolStripMenuItem.Text = "&Файл";
+            this.файлToolStripMenuItem.ToolTipText = "Щелкните здесь, чтобы открыть, сохранить, напечатать документ или выполнить други" +
+    "е действия.";
             // 
             // CreateFileMenuButton
             // 
@@ -539,6 +571,7 @@
             this.правкаToolStripMenuItem.Name = "правкаToolStripMenuItem";
             this.правкаToolStripMenuItem.Size = new System.Drawing.Size(66, 20);
             this.правкаToolStripMenuItem.Text = "&Правка";
+            this.правкаToolStripMenuItem.ToolTipText = "Нажмите здесь, что бы вставить, вырезать, скопировать из буфера обмена.";
             // 
             // CancelToolStripMenuItem
             // 
@@ -611,6 +644,7 @@
             this.сервисToolStripMenuItem.Name = "сервисToolStripMenuItem";
             this.сервисToolStripMenuItem.Size = new System.Drawing.Size(67, 20);
             this.сервисToolStripMenuItem.Text = "&Сервис";
+            this.сервисToolStripMenuItem.ToolTipText = "Нажмите здесь, что бы поменять настройки приложения.";
             // 
             // настройкиToolStripMenuItem
             // 
@@ -659,6 +693,7 @@
             this.справкаToolStripMenuItem.Name = "справкаToolStripMenuItem";
             this.справкаToolStripMenuItem.Size = new System.Drawing.Size(73, 20);
             this.справкаToolStripMenuItem.Text = "Спра&вка";
+            this.справкаToolStripMenuItem.ToolTipText = "Справка и информация о приложении.";
             // 
             // содержаниеToolStripMenuItem
             // 
@@ -704,6 +739,7 @@
             this.RichTextBoxEditor.Size = new System.Drawing.Size(783, 375);
             this.RichTextBoxEditor.TabIndex = 0;
             this.RichTextBoxEditor.Text = "Привет мир\n\nТестовый набор слов для проверки отображения текстбокса";
+            this.toolTip2.SetToolTip(this.RichTextBoxEditor, "Отмена последнего действия.");
             this.RichTextBoxEditor.SelectionChanged += new System.EventHandler(this.RichTextBoxEditor_SelectionChanged);
             // 
             // PrintDocumentElement
@@ -717,6 +753,50 @@
             this.PrintDialogElement.AllowSomePages = true;
             this.PrintDialogElement.Document = this.PrintDocumentElement;
             this.PrintDialogElement.UseEXDialog = true;
+            // 
+            // toolTip1
+            // 
+            this.toolTip1.ToolTipTitle = "Сохранить (CTRL + S)";
+            // 
+            // toolTip2
+            // 
+            this.toolTip2.ToolTipTitle = "Отменить (CTRL + Z)";
+            // 
+            // toolTip3
+            // 
+            this.toolTip3.ToolTipTitle = "Вернуть (CTRL + Y)";
+            // 
+            // toolTip4
+            // 
+            this.toolTip4.ToolTipTitle = "Вставить (CTRL + V)";
+            // 
+            // toolTip5
+            // 
+            this.toolTip5.ToolTipTitle = "Вырезать (CTRL + X)";
+            // 
+            // toolTip6
+            // 
+            this.toolTip6.ToolTipTitle = "Копировать (CTRL + С)";
+            // 
+            // toolTip7
+            // 
+            this.toolTip7.ToolTipTitle = "Шрифт";
+            // 
+            // toolTip8
+            // 
+            this.toolTip8.ToolTipTitle = "Размер шрифта";
+            // 
+            // toolTip9
+            // 
+            this.toolTip9.ToolTipTitle = "Полужирный";
+            // 
+            // toolTip10
+            // 
+            this.toolTip10.ToolTipTitle = "Курсив";
+            // 
+            // toolTip11
+            // 
+            this.toolTip11.ToolTipTitle = "Подчеркнутый";
             // 
             // MainForm
             // 
@@ -806,6 +886,20 @@
         private System.Windows.Forms.CheckBox checkBoxUnderline;
         private System.Windows.Forms.CheckBox checkBoxItalic;
         private System.Windows.Forms.CheckBox checkBoxBold;
+        private System.Windows.Forms.ToolTip toolTip1;
+        private System.Windows.Forms.ToolTip toolTip2;
+        private System.Windows.Forms.ToolTip toolTip3;
+        private System.Windows.Forms.ToolTip toolTip4;
+        private System.Windows.Forms.ToolTip toolTip11;
+        private System.Windows.Forms.ToolTip toolTip10;
+        private System.Windows.Forms.ToolTip toolTip8;
+        private System.Windows.Forms.ToolTip toolTip9;
+        private System.Windows.Forms.ToolTip toolTip6;
+        private System.Windows.Forms.ToolTip toolTip5;
+        private System.Windows.Forms.ToolTip toolTip7;
+        private System.Windows.Forms.ToolTip toolTip12;
+        private System.Windows.Forms.ToolTip toolTip13;
+        private System.Windows.Forms.ToolTip toolTip14;
     }
 }
 

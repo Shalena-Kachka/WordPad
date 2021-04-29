@@ -428,7 +428,7 @@ namespace MiniWordPad
         // вывод справки
         private void содержаниеToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            //Help.ShowHelp(this, "help.chm");//засунул help.chm в bin/Debug
+            Help.ShowHelp(this, "help.chm");//засунул help.chm в bin/Debug
         }
 
         Rectangle TopLeft { get { return new Rectangle(0, 0, _, _); } }
