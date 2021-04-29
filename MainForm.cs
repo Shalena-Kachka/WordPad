@@ -21,6 +21,19 @@ namespace MiniWordPad
         List<string> _FontsName = new List<string>();
         List<float> _FontSize = new List<float>();
         public string DefaultSaveDirectory { get; set; } = "c:\\";
+        private bool isunsaved = false;
+        public bool IsUnsaved
+        {
+            get
+            {
+                return isunsaved;
+            }
+            set
+            {
+                isunsaved = value;
+                UpdatePath();
+            }
+        }
 
         public MainForm()
         {
@@ -43,7 +56,7 @@ namespace MiniWordPad
         /// </summary>
         private void UpdatePath()
         {
-            FileNameLabel.Text = $"{OpenedDocumentPath} - MiniWordPad";
+            FileNameLabel.Text = $"{(IsUnsaved ? "*" : "")}{OpenedDocumentPath} - MiniWordPad";
         }
 
         /// <summary>
@@ -79,6 +92,7 @@ namespace MiniWordPad
 
                     OpenedDocumentPath = saveFileDialog.FileName;
                     IsOpened = true;
+                    IsUnsaved = false;
                     UpdatePath();
                 }
             }
@@ -194,6 +208,7 @@ namespace MiniWordPad
 
                             OpenedDocumentPath = saveFileDialog.FileName;
                             IsOpened = true;
+                            IsUnsaved = false;
                             UpdatePath();
                         }
                     }
@@ -240,6 +255,7 @@ namespace MiniWordPad
                             IsOpened = false;
                             RichTextBoxEditor.Text = String.Empty;
                             OpenedDocumentPath = "Новый документ";
+                            IsUnsaved = false;
                             UpdatePath();
                         }
                         else //Любой другой файл просто открыть в текстовом режиме
@@ -306,7 +322,27 @@ namespace MiniWordPad
         /// </summary>
         private void CloseWindowButton_Click(object sender, EventArgs e)
         {
-            Close();
+            if (IsUnsaved)
+            {
+                DialogResult savePrompt = MessageBox.Show("Вы хотите сохранить ваши изменения?", "MiniWordPad", MessageBoxButtons.YesNoCancel);
+
+                switch (savePrompt)
+                {
+                    case DialogResult.Cancel:
+                        break;
+                    case DialogResult.No:
+                        Close();
+                        break;
+                    case DialogResult.Yes:
+                        SaveMenuButton_Click(sender, e);
+                        if (!IsUnsaved) Close();
+                        break;
+                }
+            }
+            else
+            {
+                Close();
+            }
         }
 
         private void PasteToolStripMenuItem_Click(object sender, EventArgs e)
@@ -344,6 +380,12 @@ namespace MiniWordPad
         {
             RichTextBoxEditor.Undo();
         }
+
+        private void RichTextBoxEditor_TextChanged(object sender, EventArgs e)
+        {
+            IsUnsaved = true;
+        }
+
 
         private void настройкиToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -473,6 +515,47 @@ namespace MiniWordPad
            
         }
 
+        private void checkBoxTextBoxAlign_Click(object sender, EventArgs e)
+        {
+            CheckBox pressed = (CheckBox)sender;
+
+            if (pressed.Checked) {
+
+                checkBoxTextBoxAlignLeft.Checked = false;
+                checkBoxTextBoxAlignCenter.Checked = false;
+                checkBoxTextBoxAlignRight.Checked = false;
+
+                ((CheckBox)sender).Checked = true;
+                switch (pressed.Name)
+                {
+                    case "checkBoxTextBoxAlignLeft":
+                        RichTextBoxEditor.SelectionAlignment = HorizontalAlignment.Left;
+                        break;
+                    case "checkBoxTextBoxAlignCenter":
+                        RichTextBoxEditor.SelectionAlignment = HorizontalAlignment.Center;
+                        break;
+                    case "checkBoxTextBoxAlignRight":
+                        RichTextBoxEditor.SelectionAlignment = HorizontalAlignment.Right;
+                        break;
+                }
+            }
+
+            else RichTextBoxEditor.SelectionAlignment = HorizontalAlignment.Left;
+
+            switch (RichTextBoxEditor.SelectionAlignment)
+            {
+                case HorizontalAlignment.Left:
+                    checkBoxTextBoxAlignLeft.Checked = true;
+                    break;
+                case HorizontalAlignment.Center:
+                    checkBoxTextBoxAlignCenter.Checked = true;
+                    break;
+                case HorizontalAlignment.Right:
+                    checkBoxTextBoxAlignRight.Checked = true;
+                    break;
+            }
+        }
+
         private int GetFontIndex(string name)
         {
             return _FontsName.IndexOf(name);
@@ -487,7 +570,8 @@ namespace MiniWordPad
                 (
                     (checkBoxBold.Checked ? FontStyle.Bold : 0) |
                     (checkBoxItalic.Checked ? FontStyle.Italic : 0) |
-                    (checkBoxUnderline.Checked ? FontStyle.Underline : 0)
+                    (checkBoxUnderline.Checked ? FontStyle.Underline : 0) |
+                    (checkBoxStrikeout.Checked ? FontStyle.Strikeout : 0)
                 )
             );
         }
@@ -498,12 +582,30 @@ namespace MiniWordPad
                 checkBoxBold.Checked = RichTextBoxEditor.SelectionFont.Bold;
                 checkBoxItalic.Checked = RichTextBoxEditor.SelectionFont.Italic;
                 checkBoxUnderline.Checked = RichTextBoxEditor.SelectionFont.Underline;
+                checkBoxStrikeout.Checked = RichTextBoxEditor.SelectionFont.Strikeout;
 
                 FontSelectorComboBox.SelectedIndex = GetFontIndex(RichTextBoxEditor.SelectionFont.FontFamily.Name);
                 FontSizeComboBox.SelectedItem = RichTextBoxEditor.SelectionFont.Size;
 
                 FontColorPickerButton.FlatAppearance.BorderColor = RichTextBoxEditor.SelectionColor;
                 FontBackColorPickerButton.FlatAppearance.BorderColor = RichTextBoxEditor.SelectionBackColor;
+
+                checkBoxTextBoxAlignLeft.Checked = false;
+                checkBoxTextBoxAlignCenter.Checked = false;
+                checkBoxTextBoxAlignRight.Checked = false;
+
+                switch (RichTextBoxEditor.SelectionAlignment)
+                {
+                    case HorizontalAlignment.Left:
+                        checkBoxTextBoxAlignLeft.Checked = true;
+                        break;
+                    case HorizontalAlignment.Center:
+                        checkBoxTextBoxAlignCenter.Checked = true;
+                        break;
+                    case HorizontalAlignment.Right:
+                        checkBoxTextBoxAlignRight.Checked = true;
+                        break;
+                }
             }
         }
     }

@@ -41,6 +41,12 @@
             this.MaximizeWindowButton = new System.Windows.Forms.Button();
             this.CloseWindowButton = new System.Windows.Forms.Button();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.checkBoxStrikeout = new System.Windows.Forms.CheckBox();
+            this.checkBoxTextBoxAlignRight = new System.Windows.Forms.CheckBox();
+            this.checkBoxTextBoxAlignCenter = new System.Windows.Forms.CheckBox();
+            this.checkBoxTextBoxAlignLeft = new System.Windows.Forms.CheckBox();
+            this.FontBackColorPickerButton = new System.Windows.Forms.Button();
+            this.FontColorPickerButton = new System.Windows.Forms.Button();
             this.checkBoxUnderline = new System.Windows.Forms.CheckBox();
             this.panel6 = new System.Windows.Forms.Panel();
             this.checkBoxItalic = new System.Windows.Forms.CheckBox();
@@ -49,17 +55,26 @@
             this.CopyButton = new System.Windows.Forms.Button();
             this.CutButton = new System.Windows.Forms.Button();
             this.FontSelectorComboBox = new System.Windows.Forms.ComboBox();
+            this.PasteButton = new System.Windows.Forms.Button();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.файлToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.CreateFileMenuButton = new System.Windows.Forms.ToolStripMenuItem();
+            this.OpenFileMenuButton = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator = new System.Windows.Forms.ToolStripSeparator();
+            this.SaveMenuButton = new System.Windows.Forms.ToolStripMenuItem();
             this.SaveAsMenuButton = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.PrintMenuButton = new System.Windows.Forms.ToolStripMenuItem();
+            this.PreviewMenuButton = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator2 = new System.Windows.Forms.ToolStripSeparator();
             this.exitMenuButton = new System.Windows.Forms.ToolStripMenuItem();
             this.правкаToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.CancelToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.RepitToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator3 = new System.Windows.Forms.ToolStripSeparator();
+            this.CutoolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.CopyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.PastToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator4 = new System.Windows.Forms.ToolStripSeparator();
             this.SelectAllToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.сервисToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -75,6 +90,7 @@
             this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
             this.опрограммеToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.panel5 = new System.Windows.Forms.Panel();
+            this.panel1 = new System.Windows.Forms.Panel();
             this.RichTextBoxEditor = new System.Windows.Forms.RichTextBox();
             this.PrintDocumentElement = new System.Drawing.Printing.PrintDocument();
             this.PrintDialogElement = new System.Windows.Forms.PrintDialog();
@@ -92,23 +108,13 @@
             this.toolTip12 = new System.Windows.Forms.ToolTip(this.components);
             this.toolTip13 = new System.Windows.Forms.ToolTip(this.components);
             this.toolTip14 = new System.Windows.Forms.ToolTip(this.components);
-            this.PasteButton = new System.Windows.Forms.Button();
-            this.CreateFileMenuButton = new System.Windows.Forms.ToolStripMenuItem();
-            this.OpenFileMenuButton = new System.Windows.Forms.ToolStripMenuItem();
-            this.SaveMenuButton = new System.Windows.Forms.ToolStripMenuItem();
-            this.PrintMenuButton = new System.Windows.Forms.ToolStripMenuItem();
-            this.PreviewMenuButton = new System.Windows.Forms.ToolStripMenuItem();
-            this.CutoolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.CopyToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.PastToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.FontColorPickerButton = new System.Windows.Forms.Button();
-            this.FontBackColorPickerButton = new System.Windows.Forms.Button();
             this.HeaderPanel.SuspendLayout();
             this.panel4.SuspendLayout();
             this.panel2.SuspendLayout();
             this.panel3.SuspendLayout();
             this.menuStrip1.SuspendLayout();
             this.panel5.SuspendLayout();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // HeaderPanel
@@ -281,6 +287,10 @@
             // panel3
             // 
             this.panel3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(241)))), ((int)(((byte)(241)))));
+            this.panel3.Controls.Add(this.checkBoxStrikeout);
+            this.panel3.Controls.Add(this.checkBoxTextBoxAlignRight);
+            this.panel3.Controls.Add(this.checkBoxTextBoxAlignCenter);
+            this.panel3.Controls.Add(this.checkBoxTextBoxAlignLeft);
             this.panel3.Controls.Add(this.FontBackColorPickerButton);
             this.panel3.Controls.Add(this.FontColorPickerButton);
             this.panel3.Controls.Add(this.checkBoxUnderline);
@@ -300,6 +310,124 @@
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(883, 100);
             this.panel3.TabIndex = 1;
+            // 
+            // checkBoxStrikeout
+            // 
+            this.checkBoxStrikeout.Appearance = System.Windows.Forms.Appearance.Button;
+            this.checkBoxStrikeout.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(241)))), ((int)(((byte)(241)))));
+            this.checkBoxStrikeout.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.checkBoxStrikeout.CheckAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.checkBoxStrikeout.FlatAppearance.BorderSize = 0;
+            this.checkBoxStrikeout.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(177)))), ((int)(((byte)(177)))));
+            this.checkBoxStrikeout.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(197)))), ((int)(((byte)(197)))));
+            this.checkBoxStrikeout.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.checkBoxStrikeout.Font = new System.Drawing.Font("Microsoft JhengHei UI Light", 10F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Strikeout))));
+            this.checkBoxStrikeout.Location = new System.Drawing.Point(275, 60);
+            this.checkBoxStrikeout.Margin = new System.Windows.Forms.Padding(0);
+            this.checkBoxStrikeout.Name = "checkBoxStrikeout";
+            this.checkBoxStrikeout.Size = new System.Drawing.Size(28, 28);
+            this.checkBoxStrikeout.TabIndex = 14;
+            this.checkBoxStrikeout.Text = "З";
+            this.checkBoxStrikeout.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.UnderlinedToolTip.SetToolTip(this.checkBoxStrikeout, "Подчеркнуть текст.");
+            this.checkBoxStrikeout.UseVisualStyleBackColor = false;
+            this.checkBoxStrikeout.Click += new System.EventHandler(this.FontSelectorComboBox_SelectedIndexChanged);
+            // 
+            // checkBoxTextBoxAlignRight
+            // 
+            this.checkBoxTextBoxAlignRight.Appearance = System.Windows.Forms.Appearance.Button;
+            this.checkBoxTextBoxAlignRight.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(241)))), ((int)(((byte)(241)))));
+            this.checkBoxTextBoxAlignRight.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.checkBoxTextBoxAlignRight.CheckAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.checkBoxTextBoxAlignRight.FlatAppearance.BorderSize = 0;
+            this.checkBoxTextBoxAlignRight.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(177)))), ((int)(((byte)(177)))));
+            this.checkBoxTextBoxAlignRight.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(197)))), ((int)(((byte)(197)))));
+            this.checkBoxTextBoxAlignRight.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.checkBoxTextBoxAlignRight.Font = new System.Drawing.Font("Microsoft JhengHei UI Light", 10F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))));
+            this.checkBoxTextBoxAlignRight.Location = new System.Drawing.Point(438, 60);
+            this.checkBoxTextBoxAlignRight.Margin = new System.Windows.Forms.Padding(0);
+            this.checkBoxTextBoxAlignRight.Name = "checkBoxTextBoxAlignRight";
+            this.checkBoxTextBoxAlignRight.Size = new System.Drawing.Size(28, 28);
+            this.checkBoxTextBoxAlignRight.TabIndex = 13;
+            this.checkBoxTextBoxAlignRight.Text = ">";
+            this.checkBoxTextBoxAlignRight.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.UnderlinedToolTip.SetToolTip(this.checkBoxTextBoxAlignRight, "Подчеркнуть текст.");
+            this.checkBoxTextBoxAlignRight.UseVisualStyleBackColor = false;
+            this.checkBoxTextBoxAlignRight.Click += new System.EventHandler(this.checkBoxTextBoxAlign_Click);
+            // 
+            // checkBoxTextBoxAlignCenter
+            // 
+            this.checkBoxTextBoxAlignCenter.Appearance = System.Windows.Forms.Appearance.Button;
+            this.checkBoxTextBoxAlignCenter.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(241)))), ((int)(((byte)(241)))));
+            this.checkBoxTextBoxAlignCenter.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.checkBoxTextBoxAlignCenter.CheckAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.checkBoxTextBoxAlignCenter.FlatAppearance.BorderSize = 0;
+            this.checkBoxTextBoxAlignCenter.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(177)))), ((int)(((byte)(177)))));
+            this.checkBoxTextBoxAlignCenter.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(197)))), ((int)(((byte)(197)))));
+            this.checkBoxTextBoxAlignCenter.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.checkBoxTextBoxAlignCenter.Font = new System.Drawing.Font("Microsoft JhengHei UI Light", 10F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))));
+            this.checkBoxTextBoxAlignCenter.Location = new System.Drawing.Point(409, 60);
+            this.checkBoxTextBoxAlignCenter.Margin = new System.Windows.Forms.Padding(0);
+            this.checkBoxTextBoxAlignCenter.Name = "checkBoxTextBoxAlignCenter";
+            this.checkBoxTextBoxAlignCenter.Size = new System.Drawing.Size(28, 28);
+            this.checkBoxTextBoxAlignCenter.TabIndex = 12;
+            this.checkBoxTextBoxAlignCenter.Text = "=";
+            this.checkBoxTextBoxAlignCenter.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.UnderlinedToolTip.SetToolTip(this.checkBoxTextBoxAlignCenter, "Подчеркнуть текст.");
+            this.checkBoxTextBoxAlignCenter.UseVisualStyleBackColor = false;
+            this.checkBoxTextBoxAlignCenter.Click += new System.EventHandler(this.checkBoxTextBoxAlign_Click);
+            // 
+            // checkBoxTextBoxAlignLeft
+            // 
+            this.checkBoxTextBoxAlignLeft.Appearance = System.Windows.Forms.Appearance.Button;
+            this.checkBoxTextBoxAlignLeft.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(241)))), ((int)(((byte)(241)))));
+            this.checkBoxTextBoxAlignLeft.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.checkBoxTextBoxAlignLeft.CheckAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.checkBoxTextBoxAlignLeft.Checked = true;
+            this.checkBoxTextBoxAlignLeft.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.checkBoxTextBoxAlignLeft.FlatAppearance.BorderSize = 0;
+            this.checkBoxTextBoxAlignLeft.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(177)))), ((int)(((byte)(177)))));
+            this.checkBoxTextBoxAlignLeft.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(197)))), ((int)(((byte)(197)))));
+            this.checkBoxTextBoxAlignLeft.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.checkBoxTextBoxAlignLeft.Font = new System.Drawing.Font("Microsoft JhengHei UI Light", 10F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))));
+            this.checkBoxTextBoxAlignLeft.Location = new System.Drawing.Point(380, 60);
+            this.checkBoxTextBoxAlignLeft.Margin = new System.Windows.Forms.Padding(0);
+            this.checkBoxTextBoxAlignLeft.Name = "checkBoxTextBoxAlignLeft";
+            this.checkBoxTextBoxAlignLeft.Size = new System.Drawing.Size(28, 28);
+            this.checkBoxTextBoxAlignLeft.TabIndex = 11;
+            this.checkBoxTextBoxAlignLeft.Text = "<";
+            this.checkBoxTextBoxAlignLeft.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.UnderlinedToolTip.SetToolTip(this.checkBoxTextBoxAlignLeft, "Подчеркнуть текст.");
+            this.checkBoxTextBoxAlignLeft.UseVisualStyleBackColor = false;
+            this.checkBoxTextBoxAlignLeft.Click += new System.EventHandler(this.checkBoxTextBoxAlign_Click);
+            // 
+            // FontBackColorPickerButton
+            // 
+            this.FontBackColorPickerButton.FlatAppearance.BorderSize = 2;
+            this.FontBackColorPickerButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.FontBackColorPickerButton.Font = new System.Drawing.Font("Microsoft JhengHei UI Light", 10F, System.Drawing.FontStyle.Bold);
+            this.FontBackColorPickerButton.Location = new System.Drawing.Point(342, 60);
+            this.FontBackColorPickerButton.Margin = new System.Windows.Forms.Padding(0);
+            this.FontBackColorPickerButton.Name = "FontBackColorPickerButton";
+            this.FontBackColorPickerButton.Size = new System.Drawing.Size(28, 28);
+            this.FontBackColorPickerButton.TabIndex = 10;
+            this.FontBackColorPickerButton.Text = "🖌";
+            this.FontBackColorPickerButton.UseVisualStyleBackColor = true;
+            this.FontBackColorPickerButton.Click += new System.EventHandler(this.FontBackColorPickerButton_Click);
+            // 
+            // FontColorPickerButton
+            // 
+            this.FontColorPickerButton.FlatAppearance.BorderSize = 2;
+            this.FontColorPickerButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.FontColorPickerButton.Font = new System.Drawing.Font("Microsoft JhengHei UI Light", 10F, System.Drawing.FontStyle.Bold);
+            this.FontColorPickerButton.Location = new System.Drawing.Point(313, 60);
+            this.FontColorPickerButton.Margin = new System.Windows.Forms.Padding(0);
+            this.FontColorPickerButton.Name = "FontColorPickerButton";
+            this.FontColorPickerButton.Size = new System.Drawing.Size(28, 28);
+            this.FontColorPickerButton.TabIndex = 9;
+            this.FontColorPickerButton.Text = "A";
+            this.FontColorPickerButton.UseVisualStyleBackColor = true;
+            this.FontColorPickerButton.Click += new System.EventHandler(this.FontColorPickerButton_Click);
             // 
             // checkBoxUnderline
             // 
@@ -435,6 +563,27 @@
             this.FontToolTip.SetToolTip(this.FontSelectorComboBox, "Выбор нового шрифта.");
             this.FontSelectorComboBox.SelectionChangeCommitted += new System.EventHandler(this.FontSelectorComboBox_SelectedIndexChanged);
             // 
+            // PasteButton
+            // 
+            this.PasteButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.PasteButton.FlatAppearance.BorderSize = 0;
+            this.PasteButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(205)))), ((int)(((byte)(205)))), ((int)(((byte)(205)))));
+            this.PasteButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.PasteButton.Font = new System.Drawing.Font("Microsoft JhengHei UI Light", 9F);
+            this.PasteButton.ForeColor = System.Drawing.Color.Black;
+            this.PasteButton.Image = global::MiniWordPad.Properties.Resources.paste;
+            this.PasteButton.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
+            this.PasteButton.Location = new System.Drawing.Point(6, 26);
+            this.PasteButton.Margin = new System.Windows.Forms.Padding(0);
+            this.PasteButton.Name = "PasteButton";
+            this.PasteButton.Size = new System.Drawing.Size(65, 70);
+            this.PasteButton.TabIndex = 0;
+            this.PasteButton.Text = "Вставить";
+            this.PasteButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.PasteToolTip.SetToolTip(this.PasteButton, "Вставка содержимого из буфера обмена.");
+            this.PasteButton.UseVisualStyleBackColor = true;
+            this.PasteButton.Click += new System.EventHandler(this.PasteToolStripMenuItem_Click);
+            // 
             // menuStrip1
             // 
             this.menuStrip1.AutoSize = false;
@@ -473,10 +622,40 @@
             this.файлToolStripMenuItem.ToolTipText = "Щелкните здесь, чтобы открыть, сохранить, напечатать документ или выполнить други" +
     "е действия.";
             // 
+            // CreateFileMenuButton
+            // 
+            this.CreateFileMenuButton.Image = ((System.Drawing.Image)(resources.GetObject("CreateFileMenuButton.Image")));
+            this.CreateFileMenuButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.CreateFileMenuButton.Name = "CreateFileMenuButton";
+            this.CreateFileMenuButton.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.N)));
+            this.CreateFileMenuButton.Size = new System.Drawing.Size(264, 22);
+            this.CreateFileMenuButton.Text = "&Создать";
+            this.CreateFileMenuButton.Click += new System.EventHandler(this.CreateFileMenuButton_Click);
+            // 
+            // OpenFileMenuButton
+            // 
+            this.OpenFileMenuButton.Image = ((System.Drawing.Image)(resources.GetObject("OpenFileMenuButton.Image")));
+            this.OpenFileMenuButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.OpenFileMenuButton.Name = "OpenFileMenuButton";
+            this.OpenFileMenuButton.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.O)));
+            this.OpenFileMenuButton.Size = new System.Drawing.Size(264, 22);
+            this.OpenFileMenuButton.Text = "&Открыть";
+            this.OpenFileMenuButton.Click += new System.EventHandler(this.OpenFileMenuButton_Click);
+            // 
             // toolStripSeparator
             // 
             this.toolStripSeparator.Name = "toolStripSeparator";
             this.toolStripSeparator.Size = new System.Drawing.Size(261, 6);
+            // 
+            // SaveMenuButton
+            // 
+            this.SaveMenuButton.Image = ((System.Drawing.Image)(resources.GetObject("SaveMenuButton.Image")));
+            this.SaveMenuButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.SaveMenuButton.Name = "SaveMenuButton";
+            this.SaveMenuButton.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.S)));
+            this.SaveMenuButton.Size = new System.Drawing.Size(264, 22);
+            this.SaveMenuButton.Text = "&Сохранить";
+            this.SaveMenuButton.Click += new System.EventHandler(this.SaveMenuButton_Click);
             // 
             // SaveAsMenuButton
             // 
@@ -489,6 +668,25 @@
             // 
             this.toolStripSeparator1.Name = "toolStripSeparator1";
             this.toolStripSeparator1.Size = new System.Drawing.Size(261, 6);
+            // 
+            // PrintMenuButton
+            // 
+            this.PrintMenuButton.Image = ((System.Drawing.Image)(resources.GetObject("PrintMenuButton.Image")));
+            this.PrintMenuButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.PrintMenuButton.Name = "PrintMenuButton";
+            this.PrintMenuButton.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.P)));
+            this.PrintMenuButton.Size = new System.Drawing.Size(264, 22);
+            this.PrintMenuButton.Text = "&Печать";
+            this.PrintMenuButton.Click += new System.EventHandler(this.PrintMenuButton_Click);
+            // 
+            // PreviewMenuButton
+            // 
+            this.PreviewMenuButton.Image = ((System.Drawing.Image)(resources.GetObject("PreviewMenuButton.Image")));
+            this.PreviewMenuButton.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.PreviewMenuButton.Name = "PreviewMenuButton";
+            this.PreviewMenuButton.Size = new System.Drawing.Size(264, 22);
+            this.PreviewMenuButton.Text = "Предварительный про&смотр";
+            this.PreviewMenuButton.Click += new System.EventHandler(this.PreviewMenuButton_Click);
             // 
             // toolStripSeparator2
             // 
@@ -538,6 +736,36 @@
             // 
             this.toolStripSeparator3.Name = "toolStripSeparator3";
             this.toolStripSeparator3.Size = new System.Drawing.Size(236, 6);
+            // 
+            // CutoolStripMenuItem
+            // 
+            this.CutoolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("CutoolStripMenuItem.Image")));
+            this.CutoolStripMenuItem.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.CutoolStripMenuItem.Name = "CutoolStripMenuItem";
+            this.CutoolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.X)));
+            this.CutoolStripMenuItem.Size = new System.Drawing.Size(239, 22);
+            this.CutoolStripMenuItem.Text = "Вырезат&ь";
+            this.CutoolStripMenuItem.Click += new System.EventHandler(this.CutToolStripMenuItem_Click);
+            // 
+            // CopyToolStripMenuItem
+            // 
+            this.CopyToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("CopyToolStripMenuItem.Image")));
+            this.CopyToolStripMenuItem.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.CopyToolStripMenuItem.Name = "CopyToolStripMenuItem";
+            this.CopyToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.C)));
+            this.CopyToolStripMenuItem.Size = new System.Drawing.Size(239, 22);
+            this.CopyToolStripMenuItem.Text = "&Копировать";
+            this.CopyToolStripMenuItem.Click += new System.EventHandler(this.CopyToolStripMenuItem_Click);
+            // 
+            // PastToolStripMenuItem
+            // 
+            this.PastToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("PastToolStripMenuItem.Image")));
+            this.PastToolStripMenuItem.ImageTransparentColor = System.Drawing.Color.Magenta;
+            this.PastToolStripMenuItem.Name = "PastToolStripMenuItem";
+            this.PastToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.V)));
+            this.PastToolStripMenuItem.Size = new System.Drawing.Size(239, 22);
+            this.PastToolStripMenuItem.Text = "Вст&авка";
+            this.PastToolStripMenuItem.Click += new System.EventHandler(this.PasteToolStripMenuItem_Click);
             // 
             // toolStripSeparator4
             // 
@@ -648,13 +876,24 @@
             // panel5
             // 
             this.panel5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(230)))), ((int)(((byte)(230)))), ((int)(((byte)(230)))));
-            this.panel5.Controls.Add(this.RichTextBoxEditor);
+            this.panel5.Controls.Add(this.panel1);
             this.panel5.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel5.Location = new System.Drawing.Point(4, 130);
             this.panel5.Name = "panel5";
             this.panel5.Padding = new System.Windows.Forms.Padding(50, 0, 50, 0);
             this.panel5.Size = new System.Drawing.Size(883, 375);
             this.panel5.TabIndex = 2;
+            // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.Color.White;
+            this.panel1.Controls.Add(this.RichTextBoxEditor);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.panel1.Location = new System.Drawing.Point(50, 0);
+            this.panel1.Name = "panel1";
+            this.panel1.Padding = new System.Windows.Forms.Padding(10, 5, 10, 0);
+            this.panel1.Size = new System.Drawing.Size(783, 375);
+            this.panel1.TabIndex = 1;
             // 
             // RichTextBoxEditor
             // 
@@ -665,13 +904,15 @@
             this.RichTextBoxEditor.EnableAutoDragDrop = true;
             this.RichTextBoxEditor.ForeColor = System.Drawing.Color.Black;
             this.RichTextBoxEditor.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.RichTextBoxEditor.Location = new System.Drawing.Point(50, 0);
+            this.RichTextBoxEditor.Location = new System.Drawing.Point(10, 5);
+            this.RichTextBoxEditor.Margin = new System.Windows.Forms.Padding(0);
             this.RichTextBoxEditor.Name = "RichTextBoxEditor";
-            this.RichTextBoxEditor.Size = new System.Drawing.Size(783, 375);
+            this.RichTextBoxEditor.Size = new System.Drawing.Size(763, 370);
             this.RichTextBoxEditor.TabIndex = 0;
-            this.RichTextBoxEditor.Text = "Привет мир\n\nТестовый набор слов для проверки отображения текстбокса";
+            this.RichTextBoxEditor.Text = "";
             this.UndoToolTip.SetToolTip(this.RichTextBoxEditor, "Отмена последнего действия.");
             this.RichTextBoxEditor.SelectionChanged += new System.EventHandler(this.RichTextBoxEditor_SelectionChanged);
+            this.RichTextBoxEditor.TextChanged += new System.EventHandler(this.RichTextBoxEditor_TextChanged);
             // 
             // PrintDocumentElement
             // 
@@ -729,134 +970,6 @@
             // 
             this.UnderlinedToolTip.ToolTipTitle = "Подчеркнутый";
             // 
-            // PasteButton
-            // 
-            this.PasteButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
-            this.PasteButton.FlatAppearance.BorderSize = 0;
-            this.PasteButton.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(205)))), ((int)(((byte)(205)))), ((int)(((byte)(205)))));
-            this.PasteButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.PasteButton.Font = new System.Drawing.Font("Microsoft JhengHei UI Light", 9F);
-            this.PasteButton.ForeColor = System.Drawing.Color.Black;
-            this.PasteButton.Image = global::MiniWordPad.Properties.Resources.paste;
-            this.PasteButton.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
-            this.PasteButton.Location = new System.Drawing.Point(6, 26);
-            this.PasteButton.Margin = new System.Windows.Forms.Padding(0);
-            this.PasteButton.Name = "PasteButton";
-            this.PasteButton.Size = new System.Drawing.Size(65, 70);
-            this.PasteButton.TabIndex = 0;
-            this.PasteButton.Text = "Вставить";
-            this.PasteButton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.PasteToolTip.SetToolTip(this.PasteButton, "Вставка содержимого из буфера обмена.");
-            this.PasteButton.UseVisualStyleBackColor = true;
-            this.PasteButton.Click += new System.EventHandler(this.PasteToolStripMenuItem_Click);
-            // 
-            // CreateFileMenuButton
-            // 
-            this.CreateFileMenuButton.Image = ((System.Drawing.Image)(resources.GetObject("CreateFileMenuButton.Image")));
-            this.CreateFileMenuButton.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.CreateFileMenuButton.Name = "CreateFileMenuButton";
-            this.CreateFileMenuButton.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.N)));
-            this.CreateFileMenuButton.Size = new System.Drawing.Size(264, 22);
-            this.CreateFileMenuButton.Text = "&Создать";
-            this.CreateFileMenuButton.Click += new System.EventHandler(this.CreateFileMenuButton_Click);
-            // 
-            // OpenFileMenuButton
-            // 
-            this.OpenFileMenuButton.Image = ((System.Drawing.Image)(resources.GetObject("OpenFileMenuButton.Image")));
-            this.OpenFileMenuButton.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.OpenFileMenuButton.Name = "OpenFileMenuButton";
-            this.OpenFileMenuButton.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.O)));
-            this.OpenFileMenuButton.Size = new System.Drawing.Size(264, 22);
-            this.OpenFileMenuButton.Text = "&Открыть";
-            this.OpenFileMenuButton.Click += new System.EventHandler(this.OpenFileMenuButton_Click);
-            // 
-            // SaveMenuButton
-            // 
-            this.SaveMenuButton.Image = ((System.Drawing.Image)(resources.GetObject("SaveMenuButton.Image")));
-            this.SaveMenuButton.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.SaveMenuButton.Name = "SaveMenuButton";
-            this.SaveMenuButton.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.S)));
-            this.SaveMenuButton.Size = new System.Drawing.Size(264, 22);
-            this.SaveMenuButton.Text = "&Сохранить";
-            this.SaveMenuButton.Click += new System.EventHandler(this.SaveMenuButton_Click);
-            // 
-            // PrintMenuButton
-            // 
-            this.PrintMenuButton.Image = ((System.Drawing.Image)(resources.GetObject("PrintMenuButton.Image")));
-            this.PrintMenuButton.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.PrintMenuButton.Name = "PrintMenuButton";
-            this.PrintMenuButton.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.P)));
-            this.PrintMenuButton.Size = new System.Drawing.Size(264, 22);
-            this.PrintMenuButton.Text = "&Печать";
-            this.PrintMenuButton.Click += new System.EventHandler(this.PrintMenuButton_Click);
-            // 
-            // PreviewMenuButton
-            // 
-            this.PreviewMenuButton.Image = ((System.Drawing.Image)(resources.GetObject("PreviewMenuButton.Image")));
-            this.PreviewMenuButton.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.PreviewMenuButton.Name = "PreviewMenuButton";
-            this.PreviewMenuButton.Size = new System.Drawing.Size(264, 22);
-            this.PreviewMenuButton.Text = "Предварительный про&смотр";
-            this.PreviewMenuButton.Click += new System.EventHandler(this.PreviewMenuButton_Click);
-            // 
-            // CutoolStripMenuItem
-            // 
-            this.CutoolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("CutoolStripMenuItem.Image")));
-            this.CutoolStripMenuItem.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.CutoolStripMenuItem.Name = "CutoolStripMenuItem";
-            this.CutoolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.X)));
-            this.CutoolStripMenuItem.Size = new System.Drawing.Size(239, 22);
-            this.CutoolStripMenuItem.Text = "Вырезат&ь";
-            this.CutoolStripMenuItem.Click += new System.EventHandler(this.CutToolStripMenuItem_Click);
-            // 
-            // CopyToolStripMenuItem
-            // 
-            this.CopyToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("CopyToolStripMenuItem.Image")));
-            this.CopyToolStripMenuItem.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.CopyToolStripMenuItem.Name = "CopyToolStripMenuItem";
-            this.CopyToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.C)));
-            this.CopyToolStripMenuItem.Size = new System.Drawing.Size(239, 22);
-            this.CopyToolStripMenuItem.Text = "&Копировать";
-            this.CopyToolStripMenuItem.Click += new System.EventHandler(this.CopyToolStripMenuItem_Click);
-            // 
-            // PastToolStripMenuItem
-            // 
-            this.PastToolStripMenuItem.Image = ((System.Drawing.Image)(resources.GetObject("PastToolStripMenuItem.Image")));
-            this.PastToolStripMenuItem.ImageTransparentColor = System.Drawing.Color.Magenta;
-            this.PastToolStripMenuItem.Name = "PastToolStripMenuItem";
-            this.PastToolStripMenuItem.ShortcutKeys = ((System.Windows.Forms.Keys)((System.Windows.Forms.Keys.Control | System.Windows.Forms.Keys.V)));
-            this.PastToolStripMenuItem.Size = new System.Drawing.Size(239, 22);
-            this.PastToolStripMenuItem.Text = "Вст&авка";
-            this.PastToolStripMenuItem.Click += new System.EventHandler(this.PasteToolStripMenuItem_Click);
-            // 
-            // FontColorPickerButton
-            // 
-            this.FontColorPickerButton.FlatAppearance.BorderSize = 2;
-            this.FontColorPickerButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.FontColorPickerButton.Font = new System.Drawing.Font("Microsoft JhengHei UI Light", 10F, System.Drawing.FontStyle.Bold);
-            this.FontColorPickerButton.Location = new System.Drawing.Point(285, 60);
-            this.FontColorPickerButton.Margin = new System.Windows.Forms.Padding(0);
-            this.FontColorPickerButton.Name = "FontColorPickerButton";
-            this.FontColorPickerButton.Size = new System.Drawing.Size(28, 28);
-            this.FontColorPickerButton.TabIndex = 9;
-            this.FontColorPickerButton.Text = "A";
-            this.FontColorPickerButton.UseVisualStyleBackColor = true;
-            this.FontColorPickerButton.Click += new System.EventHandler(this.FontColorPickerButton_Click);
-            // 
-            // FontBackColorPickerButton
-            // 
-            this.FontBackColorPickerButton.FlatAppearance.BorderSize = 2;
-            this.FontBackColorPickerButton.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.FontBackColorPickerButton.Font = new System.Drawing.Font("Microsoft JhengHei UI Light", 10F, System.Drawing.FontStyle.Bold);
-            this.FontBackColorPickerButton.Location = new System.Drawing.Point(314, 60);
-            this.FontBackColorPickerButton.Margin = new System.Windows.Forms.Padding(0);
-            this.FontBackColorPickerButton.Name = "FontBackColorPickerButton";
-            this.FontBackColorPickerButton.Size = new System.Drawing.Size(28, 28);
-            this.FontBackColorPickerButton.TabIndex = 10;
-            this.FontBackColorPickerButton.Text = "🖌";
-            this.FontBackColorPickerButton.UseVisualStyleBackColor = true;
-            this.FontBackColorPickerButton.Click += new System.EventHandler(this.FontBackColorPickerButton_Click);
-            // 
             // MainForm
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -883,6 +996,7 @@
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.panel5.ResumeLayout(false);
+            this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);
 
         }
@@ -962,6 +1076,11 @@
         private System.Windows.Forms.ToolStripMenuItem BackColorSelector;
         private System.Windows.Forms.Button FontBackColorPickerButton;
         private System.Windows.Forms.Button FontColorPickerButton;
+        private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.CheckBox checkBoxTextBoxAlignRight;
+        private System.Windows.Forms.CheckBox checkBoxTextBoxAlignCenter;
+        private System.Windows.Forms.CheckBox checkBoxTextBoxAlignLeft;
+        private System.Windows.Forms.CheckBox checkBoxStrikeout;
     }
 }
 
