@@ -40,8 +40,11 @@
             this.MaximizeWindowButton = new System.Windows.Forms.Button();
             this.CloseWindowButton = new System.Windows.Forms.Button();
             this.panel3 = new System.Windows.Forms.Panel();
+            this.checkBoxUnderline = new System.Windows.Forms.CheckBox();
             this.panel6 = new System.Windows.Forms.Panel();
+            this.checkBoxItalic = new System.Windows.Forms.CheckBox();
             this.FontSizeComboBox = new System.Windows.Forms.ComboBox();
+            this.checkBoxBold = new System.Windows.Forms.CheckBox();
             this.CopyButton = new System.Windows.Forms.Button();
             this.CutButton = new System.Windows.Forms.Button();
             this.FontSelectorComboBox = new System.Windows.Forms.ComboBox();
@@ -81,9 +84,6 @@
             this.RichTextBoxEditor = new System.Windows.Forms.RichTextBox();
             this.PrintDocumentElement = new System.Drawing.Printing.PrintDocument();
             this.PrintDialogElement = new System.Windows.Forms.PrintDialog();
-            this.checkBoxBold = new System.Windows.Forms.CheckBox();
-            this.checkBoxItalic = new System.Windows.Forms.CheckBox();
-            this.checkBoxUnderline = new System.Windows.Forms.CheckBox();
             this.HeaderPanel.SuspendLayout();
             this.panel4.SuspendLayout();
             this.panel2.SuspendLayout();
@@ -276,6 +276,24 @@
             this.panel3.Size = new System.Drawing.Size(883, 100);
             this.panel3.TabIndex = 1;
             // 
+            // checkBoxUnderline
+            // 
+            this.checkBoxUnderline.Appearance = System.Windows.Forms.Appearance.Button;
+            this.checkBoxUnderline.AutoSize = true;
+            this.checkBoxUnderline.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.checkBoxUnderline.CheckAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.checkBoxUnderline.FlatAppearance.CheckedBackColor = System.Drawing.Color.Gray;
+            this.checkBoxUnderline.FlatStyle = System.Windows.Forms.FlatStyle.System;
+            this.checkBoxUnderline.Font = new System.Drawing.Font("Microsoft JhengHei UI Light", 10F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))));
+            this.checkBoxUnderline.Location = new System.Drawing.Point(257, 60);
+            this.checkBoxUnderline.Margin = new System.Windows.Forms.Padding(0);
+            this.checkBoxUnderline.Name = "checkBoxUnderline";
+            this.checkBoxUnderline.Size = new System.Drawing.Size(28, 28);
+            this.checkBoxUnderline.TabIndex = 3;
+            this.checkBoxUnderline.Text = "Ч";
+            this.checkBoxUnderline.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.checkBoxUnderline.UseVisualStyleBackColor = true;
+            // 
             // panel6
             // 
             this.panel6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(210)))), ((int)(((byte)(210)))), ((int)(((byte)(210)))));
@@ -284,6 +302,23 @@
             this.panel6.Name = "panel6";
             this.panel6.Size = new System.Drawing.Size(1, 74);
             this.panel6.TabIndex = 6;
+            // 
+            // checkBoxItalic
+            // 
+            this.checkBoxItalic.Appearance = System.Windows.Forms.Appearance.Button;
+            this.checkBoxItalic.AutoSize = true;
+            this.checkBoxItalic.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.checkBoxItalic.CheckAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.checkBoxItalic.FlatAppearance.CheckedBackColor = System.Drawing.Color.Gray;
+            this.checkBoxItalic.FlatStyle = System.Windows.Forms.FlatStyle.System;
+            this.checkBoxItalic.Font = new System.Drawing.Font("Microsoft JhengHei UI Light", 10F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))));
+            this.checkBoxItalic.Location = new System.Drawing.Point(227, 60);
+            this.checkBoxItalic.Name = "checkBoxItalic";
+            this.checkBoxItalic.Size = new System.Drawing.Size(27, 28);
+            this.checkBoxItalic.TabIndex = 2;
+            this.checkBoxItalic.Text = "К";
+            this.checkBoxItalic.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.checkBoxItalic.UseVisualStyleBackColor = true;
             // 
             // FontSizeComboBox
             // 
@@ -295,6 +330,23 @@
             this.FontSizeComboBox.Name = "FontSizeComboBox";
             this.FontSizeComboBox.Size = new System.Drawing.Size(52, 23);
             this.FontSizeComboBox.TabIndex = 5;
+            // 
+            // checkBoxBold
+            // 
+            this.checkBoxBold.Appearance = System.Windows.Forms.Appearance.Button;
+            this.checkBoxBold.AutoSize = true;
+            this.checkBoxBold.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
+            this.checkBoxBold.CheckAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.checkBoxBold.FlatAppearance.CheckedBackColor = System.Drawing.Color.Gray;
+            this.checkBoxBold.FlatStyle = System.Windows.Forms.FlatStyle.System;
+            this.checkBoxBold.Font = new System.Drawing.Font("Microsoft JhengHei UI Light", 10F, System.Drawing.FontStyle.Bold);
+            this.checkBoxBold.Location = new System.Drawing.Point(189, 60);
+            this.checkBoxBold.Name = "checkBoxBold";
+            this.checkBoxBold.Size = new System.Drawing.Size(32, 28);
+            this.checkBoxBold.TabIndex = 1;
+            this.checkBoxBold.Text = "Ж";
+            this.checkBoxBold.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.checkBoxBold.UseVisualStyleBackColor = true;
             // 
             // CopyButton
             // 
@@ -611,19 +663,20 @@
             // содержаниеToolStripMenuItem
             // 
             this.содержаниеToolStripMenuItem.Name = "содержаниеToolStripMenuItem";
-            this.содержаниеToolStripMenuItem.Size = new System.Drawing.Size(174, 22);
+            this.содержаниеToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.содержаниеToolStripMenuItem.Text = "&Содержание";
             // 
             // toolStripSeparator5
             // 
             this.toolStripSeparator5.Name = "toolStripSeparator5";
-            this.toolStripSeparator5.Size = new System.Drawing.Size(171, 6);
+            this.toolStripSeparator5.Size = new System.Drawing.Size(177, 6);
             // 
             // опрограммеToolStripMenuItem
             // 
             this.опрограммеToolStripMenuItem.Name = "опрограммеToolStripMenuItem";
-            this.опрограммеToolStripMenuItem.Size = new System.Drawing.Size(174, 22);
+            this.опрограммеToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.опрограммеToolStripMenuItem.Text = "&О программе...";
+            this.опрограммеToolStripMenuItem.Click += new System.EventHandler(this.опрограммеToolStripMenuItem_Click);
             // 
             // panel5
             // 
@@ -663,58 +716,6 @@
             this.PrintDialogElement.AllowSomePages = true;
             this.PrintDialogElement.Document = this.PrintDocumentElement;
             this.PrintDialogElement.UseEXDialog = true;
-            // 
-            // checkBoxBold
-            // 
-            this.checkBoxBold.Appearance = System.Windows.Forms.Appearance.Button;
-            this.checkBoxBold.AutoSize = true;
-            this.checkBoxBold.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.checkBoxBold.CheckAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.checkBoxBold.FlatAppearance.CheckedBackColor = System.Drawing.Color.Gray;
-            this.checkBoxBold.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.checkBoxBold.Font = new System.Drawing.Font("Microsoft JhengHei UI Light", 10F, System.Drawing.FontStyle.Bold);
-            this.checkBoxBold.Location = new System.Drawing.Point(189, 60);
-            this.checkBoxBold.Name = "checkBoxBold";
-            this.checkBoxBold.Size = new System.Drawing.Size(32, 28);
-            this.checkBoxBold.TabIndex = 1;
-            this.checkBoxBold.Text = "Ж";
-            this.checkBoxBold.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.checkBoxBold.UseVisualStyleBackColor = true;
-            // 
-            // checkBoxItalic
-            // 
-            this.checkBoxItalic.Appearance = System.Windows.Forms.Appearance.Button;
-            this.checkBoxItalic.AutoSize = true;
-            this.checkBoxItalic.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.checkBoxItalic.CheckAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.checkBoxItalic.FlatAppearance.CheckedBackColor = System.Drawing.Color.Gray;
-            this.checkBoxItalic.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.checkBoxItalic.Font = new System.Drawing.Font("Microsoft JhengHei UI Light", 10F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))));
-            this.checkBoxItalic.Location = new System.Drawing.Point(227, 60);
-            this.checkBoxItalic.Name = "checkBoxItalic";
-            this.checkBoxItalic.Size = new System.Drawing.Size(27, 28);
-            this.checkBoxItalic.TabIndex = 2;
-            this.checkBoxItalic.Text = "К";
-            this.checkBoxItalic.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.checkBoxItalic.UseVisualStyleBackColor = true;
-            // 
-            // checkBoxUnderline
-            // 
-            this.checkBoxUnderline.Appearance = System.Windows.Forms.Appearance.Button;
-            this.checkBoxUnderline.AutoSize = true;
-            this.checkBoxUnderline.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.checkBoxUnderline.CheckAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.checkBoxUnderline.FlatAppearance.CheckedBackColor = System.Drawing.Color.Gray;
-            this.checkBoxUnderline.FlatStyle = System.Windows.Forms.FlatStyle.System;
-            this.checkBoxUnderline.Font = new System.Drawing.Font("Microsoft JhengHei UI Light", 10F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))));
-            this.checkBoxUnderline.Location = new System.Drawing.Point(257, 60);
-            this.checkBoxUnderline.Margin = new System.Windows.Forms.Padding(0);
-            this.checkBoxUnderline.Name = "checkBoxUnderline";
-            this.checkBoxUnderline.Size = new System.Drawing.Size(28, 28);
-            this.checkBoxUnderline.TabIndex = 3;
-            this.checkBoxUnderline.Text = "Ч";
-            this.checkBoxUnderline.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.checkBoxUnderline.UseVisualStyleBackColor = true;
             // 
             // MainForm
             // 
