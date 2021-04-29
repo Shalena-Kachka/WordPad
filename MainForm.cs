@@ -260,6 +260,36 @@ namespace MiniWordPad
         }
 
         /// <summary>
+        /// Вызов диалога для выбора цвета и его установка на текст
+        /// </summary>
+        private void FontColorPickerButton_Click(object sender, EventArgs e)
+        {
+            using (ColorDialog colorDialog = new ColorDialog())
+            {
+                if (colorDialog.ShowDialog() == DialogResult.OK)
+                {
+                    RichTextBoxEditor.SelectionColor = colorDialog.Color;
+                    FontColorPickerButton.FlatAppearance.BorderColor = colorDialog.Color;
+                }
+            }
+        }
+
+        /// <summary>
+        /// Вызов диалога для выбора цвета фона и его установка на текст
+        /// </summary>
+        private void FontBackColorPickerButton_Click(object sender, EventArgs e)
+        {
+            using (ColorDialog colorDialog = new ColorDialog())
+            {
+                if (colorDialog.ShowDialog() == DialogResult.OK)
+                {
+                    RichTextBoxEditor.SelectionBackColor = colorDialog.Color;
+                    FontBackColorPickerButton.FlatAppearance.BorderColor = colorDialog.Color;
+                }
+            }
+        }
+
+        /// <summary>
         /// Метод для перетаскивания формы
         /// </summary>
         private void WindowDrag(object sender, MouseEventArgs e)
@@ -277,6 +307,102 @@ namespace MiniWordPad
         private void CloseWindowButton_Click(object sender, EventArgs e)
         {
             Close();
+        }
+
+        private void PasteToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (Clipboard.GetDataObject().GetDataPresent(DataFormats.Text))
+                RichTextBoxEditor.Paste();
+        }
+
+        private void CopyToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (RichTextBoxEditor.SelectionLength > 0)
+                RichTextBoxEditor.Copy();
+        }
+
+        private void CutToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+            if (RichTextBoxEditor.SelectionLength > 0)
+                RichTextBoxEditor.Cut();
+        }
+
+        private void SelectAllToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            RichTextBoxEditor.SelectAll();
+        }
+
+        private void RedoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (RichTextBoxEditor.CanRedo == true)
+                if (RichTextBoxEditor.RedoActionName != "Delete")
+                    RichTextBoxEditor.Redo();
+        }
+
+        private void CancelToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            RichTextBoxEditor.Undo();
+        }
+
+        private void настройкиToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            //Тут была копия кода "Сохранить как"
+        }
+
+        /// <summary>
+        /// Изменение цвета MainForm на белый
+        /// </summary>
+        private void белыйToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            BackColor = Color.White;
+            ForeColor = Color.Black;
+        }
+
+        /// <summary>
+        /// Изменение цвета MainForm на чёрный
+        /// </summary>
+        private void BlackThemeMenuButton(object sender, EventArgs e)
+        {
+            BackColor = Color.Black;
+            ForeColor = Color.White;
+        }
+
+        /// <summary>
+        /// Вызов диалога выбора цвета и установка его в качестве фона
+        /// </summary>
+        private void BackColorPickerMenuItem_Click(object sender, EventArgs e)
+        {
+            using (ColorDialog colorDialog = new ColorDialog())
+            {
+                if (colorDialog.ShowDialog() == DialogResult.OK)
+                    BackColor = colorDialog.Color;
+            }
+        }
+
+        /// <summary>
+        /// Вызов диалога выбора цвета и установка его в качестве цвета текста
+        /// </summary>
+        private void ForeColorPickerMenuItem_Click(object sender, EventArgs e)
+        {
+            using (ColorDialog colorDialog = new ColorDialog())
+            {
+                if (colorDialog.ShowDialog() == DialogResult.OK)
+                    ForeColor = colorDialog.Color;
+            }
+        }
+
+        //о программе
+        private void AboutMenuButton_Click(object sender, EventArgs e)
+        {
+            AboutBox1 aboutBox = new AboutBox1();
+            aboutBox.Show();
+        }
+
+        // вывод справки
+        private void ShowHelpMenuMenuButton_Click(object sender, EventArgs e)
+        {
+            Help.ShowHelp(this, "help.chm");//засунул help.chm в bin/Debug
         }
 
         #region Перетаскивание и растягивание окна
@@ -300,96 +426,8 @@ namespace MiniWordPad
         const int _ = 16;
         Rectangle TopCursor { get { return new Rectangle(0, 0, this.ClientSize.Width, _); } }
         Rectangle LeftCursor { get { return new Rectangle(0, 0, _, this.ClientSize.Height); } }
-
-        private void PastToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            if (Clipboard.GetDataObject().GetDataPresent(DataFormats.Text))
-                RichTextBoxEditor.Paste();
-        }
-
-        private void CopyToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            if (RichTextBoxEditor.SelectionLength > 0)
-                RichTextBoxEditor.Copy();
-        }
-
-        private void CutoolStripMenuItem_Click(object sender, EventArgs e)
-        {
-
-            if (RichTextBoxEditor.SelectionLength > 0)
-                RichTextBoxEditor.Cut();
-        }
-
-        private void SelectAllToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            RichTextBoxEditor.SelectAll();
-        }
-
-        private void RepitToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            if (RichTextBoxEditor.CanRedo == true)
-                if (RichTextBoxEditor.RedoActionName != "Delete")
-                    RichTextBoxEditor.Redo();
-        }
-
-        private void CancelToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            RichTextBoxEditor.Undo();
-        }
-
-        private void настройкиToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            //Тут была копия кода "Сохранить как"
-        }
-
-        //Изменение цвета MainForm
-        private void белыйToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            BackColor = Color.White;
-            ForeColor = Color.Black;
-        }
-
-        //Изменение цвета MainForm
-        private void черныйToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            BackColor = Color.Black;
-            ForeColor = Color.White;
-        }
-
-        private void BackColorPickerMenuItem_Click(object sender, EventArgs e)
-        {
-            using(ColorDialog colorDialog = new ColorDialog())
-            {
-                if(colorDialog.ShowDialog() == DialogResult.OK)
-                    BackColor = colorDialog.Color;
-            }
-        }
-
-        private void ForeColorPickerMenuItem_Click(object sender, EventArgs e)
-        {
-            using (ColorDialog colorDialog = new ColorDialog())
-            {
-                if (colorDialog.ShowDialog() == DialogResult.OK)
-                    ForeColor = colorDialog.Color;
-            }
-        }
-
         Rectangle BottomCursor { get { return new Rectangle(0, this.ClientSize.Height - _, this.ClientSize.Width, _); } }
         Rectangle RightCursor { get { return new Rectangle(this.ClientSize.Width - _, 0, _, this.ClientSize.Height); } }
-
-        //о программе
-        private void AboutMenuButton_Click(object sender, EventArgs e)
-        {
-            AboutBox1 aboutBox = new AboutBox1();
-            aboutBox.Show();
-        }
-        
-        // вывод справки
-        private void ShowHelpMenuMenuButton_Click(object sender, EventArgs e)
-        {
-            Help.ShowHelp(this, "help.chm");//засунул help.chm в bin/Debug
-        }
-
         Rectangle TopLeft { get { return new Rectangle(0, 0, _, _); } }
         Rectangle TopRight { get { return new Rectangle(this.ClientSize.Width - _, 0, _, _); } }
         Rectangle BottomLeft { get { return new Rectangle(0, this.ClientSize.Height - _, _, _); } }
@@ -463,6 +501,9 @@ namespace MiniWordPad
 
                 FontSelectorComboBox.SelectedIndex = GetFontIndex(RichTextBoxEditor.SelectionFont.FontFamily.Name);
                 FontSizeComboBox.SelectedItem = RichTextBoxEditor.SelectionFont.Size;
+
+                FontColorPickerButton.FlatAppearance.BorderColor = RichTextBoxEditor.SelectionColor;
+                FontBackColorPickerButton.FlatAppearance.BorderColor = RichTextBoxEditor.SelectionBackColor;
             }
         }
     }
