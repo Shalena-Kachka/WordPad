@@ -1,0 +1,7 @@
+﻿Сборка начата…
+1>------ Сборка начата: проект: MiniWordPad, Конфигурация: Debug Any CPU ------
+1>D:\Batman\GitHub\WordPad\MainForm.cs(202,30,202,32): warning CS0168: Переменная "ex" объявлена, но ни разу не использована.
+1>D:\Batman\GitHub\WordPad\MainForm.cs(254,39,254,41): warning CS0168: Переменная "ex" объявлена, но ни разу не использована.
+1>D:\Batman\GitHub\WordPad\MainForm.cs(376,30,376,32): warning CS0168: Переменная "ex" объявлена, но ни разу не использована.
+1>  MiniWordPad -> D:\Batman\GitHub\WordPad\bin\Debug\MiniWordPad.exe
+========== Сборка: успешно: 1, с ошибками: 0, без изменений: 0, пропущено: 0 ==========

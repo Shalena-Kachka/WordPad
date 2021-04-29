@@ -418,10 +418,17 @@ namespace MiniWordPad
         Rectangle BottomCursor { get { return new Rectangle(0, this.ClientSize.Height - _, this.ClientSize.Width, _); } }
         Rectangle RightCursor { get { return new Rectangle(this.ClientSize.Width - _, 0, _, this.ClientSize.Height); } }
 
+        //о программе
         private void опрограммеToolStripMenuItem_Click(object sender, EventArgs e)
         {
             AboutBox1 aboutBox = new AboutBox1();
             aboutBox.Show();
+        }
+        
+        // вывод справки
+        private void содержаниеToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            //Help.ShowHelp(this, "help.chm");//засунул help.chm в bin/Debug
         }
 
         Rectangle TopLeft { get { return new Rectangle(0, 0, _, _); } }
