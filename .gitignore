@@ -14,3 +14,5 @@ obj/Debug/MiniWordPad.csproj.CoreCompileInputs.cache
 obj/Debug/DesignTimeResolveAssemblyReferencesInput.cache
 obj/Debug/.NETFramework,Version=v4.7.2.AssemblyAttributes.cs
 .vs/MiniWordPad/v16/.suo
+obj/Debug/DesignTimeResolveAssemblyReferences.cache
+bin/Debug/help.chw

@@ -75,8 +75,10 @@
             this.настройкиToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.параметрыToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.цветToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.белыйToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.черныйToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.whiteColorMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.blackThemeMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.BackColorSelector = new System.Windows.Forms.ToolStripMenuItem();
+            this.BackColorPickerMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.справкаToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.содержаниеToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripSeparator5 = new System.Windows.Forms.ToolStripSeparator();
@@ -115,7 +117,6 @@
             this.HeaderPanel.Controls.Add(this.MaximizeWindowButton);
             this.HeaderPanel.Controls.Add(this.CloseWindowButton);
             this.HeaderPanel.Dock = System.Windows.Forms.DockStyle.Top;
-            this.HeaderPanel.ForeColor = System.Drawing.Color.White;
             this.HeaderPanel.Location = new System.Drawing.Point(4, 0);
             this.HeaderPanel.Margin = new System.Windows.Forms.Padding(0);
             this.HeaderPanel.Name = "HeaderPanel";
@@ -135,7 +136,6 @@
             // 
             this.FileNameLabel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.FileNameLabel.Font = new System.Drawing.Font("Microsoft JhengHei UI Light", 10F);
-            this.FileNameLabel.ForeColor = System.Drawing.Color.White;
             this.FileNameLabel.Location = new System.Drawing.Point(0, 0);
             this.FileNameLabel.Margin = new System.Windows.Forms.Padding(0);
             this.FileNameLabel.Name = "FileNameLabel";
@@ -300,13 +300,15 @@
             // checkBoxUnderline
             // 
             this.checkBoxUnderline.Appearance = System.Windows.Forms.Appearance.Button;
-            this.checkBoxUnderline.AutoSize = true;
+            this.checkBoxUnderline.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(241)))), ((int)(((byte)(241)))));
             this.checkBoxUnderline.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.checkBoxUnderline.CheckAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.checkBoxUnderline.FlatAppearance.CheckedBackColor = System.Drawing.Color.Gray;
-            this.checkBoxUnderline.FlatStyle = System.Windows.Forms.FlatStyle.System;
+            this.checkBoxUnderline.FlatAppearance.BorderSize = 0;
+            this.checkBoxUnderline.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(177)))), ((int)(((byte)(177)))));
+            this.checkBoxUnderline.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(197)))), ((int)(((byte)(197)))));
+            this.checkBoxUnderline.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.checkBoxUnderline.Font = new System.Drawing.Font("Microsoft JhengHei UI Light", 10F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Underline))));
-            this.checkBoxUnderline.Location = new System.Drawing.Point(257, 60);
+            this.checkBoxUnderline.Location = new System.Drawing.Point(247, 60);
             this.checkBoxUnderline.Margin = new System.Windows.Forms.Padding(0);
             this.checkBoxUnderline.Name = "checkBoxUnderline";
             this.checkBoxUnderline.Size = new System.Drawing.Size(28, 28);
@@ -314,7 +316,8 @@
             this.checkBoxUnderline.Text = "Ч";
             this.checkBoxUnderline.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.toolTip11.SetToolTip(this.checkBoxUnderline, "Подчеркнуть текст.");
-            this.checkBoxUnderline.UseVisualStyleBackColor = true;
+            this.checkBoxUnderline.UseVisualStyleBackColor = false;
+            this.checkBoxUnderline.Click += new System.EventHandler(this.FontSelectorComboBox_SelectedIndexChanged);
             // 
             // panel6
             // 
@@ -328,20 +331,23 @@
             // checkBoxItalic
             // 
             this.checkBoxItalic.Appearance = System.Windows.Forms.Appearance.Button;
-            this.checkBoxItalic.AutoSize = true;
+            this.checkBoxItalic.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(241)))), ((int)(((byte)(241)))));
             this.checkBoxItalic.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.checkBoxItalic.CheckAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.checkBoxItalic.FlatAppearance.CheckedBackColor = System.Drawing.Color.Gray;
-            this.checkBoxItalic.FlatStyle = System.Windows.Forms.FlatStyle.System;
+            this.checkBoxItalic.FlatAppearance.BorderSize = 0;
+            this.checkBoxItalic.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(177)))), ((int)(((byte)(177)))));
+            this.checkBoxItalic.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(197)))), ((int)(((byte)(197)))));
+            this.checkBoxItalic.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.checkBoxItalic.Font = new System.Drawing.Font("Microsoft JhengHei UI Light", 10F, ((System.Drawing.FontStyle)((System.Drawing.FontStyle.Bold | System.Drawing.FontStyle.Italic))));
-            this.checkBoxItalic.Location = new System.Drawing.Point(227, 60);
+            this.checkBoxItalic.Location = new System.Drawing.Point(218, 60);
             this.checkBoxItalic.Name = "checkBoxItalic";
-            this.checkBoxItalic.Size = new System.Drawing.Size(27, 28);
+            this.checkBoxItalic.Size = new System.Drawing.Size(28, 28);
             this.checkBoxItalic.TabIndex = 2;
             this.checkBoxItalic.Text = "К";
             this.checkBoxItalic.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.toolTip10.SetToolTip(this.checkBoxItalic, "Выбор курсива.");
-            this.checkBoxItalic.UseVisualStyleBackColor = true;
+            this.checkBoxItalic.UseVisualStyleBackColor = false;
+            this.checkBoxItalic.Click += new System.EventHandler(this.FontSelectorComboBox_SelectedIndexChanged);
             // 
             // FontSizeComboBox
             // 
@@ -354,24 +360,28 @@
             this.FontSizeComboBox.Size = new System.Drawing.Size(52, 23);
             this.FontSizeComboBox.TabIndex = 5;
             this.toolTip8.SetToolTip(this.FontSizeComboBox, "Изменить размер шрифта.");
+            this.FontSizeComboBox.SelectionChangeCommitted += new System.EventHandler(this.FontSelectorComboBox_SelectedIndexChanged);
             // 
             // checkBoxBold
             // 
             this.checkBoxBold.Appearance = System.Windows.Forms.Appearance.Button;
-            this.checkBoxBold.AutoSize = true;
+            this.checkBoxBold.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(241)))), ((int)(((byte)(241)))), ((int)(((byte)(241)))));
             this.checkBoxBold.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
             this.checkBoxBold.CheckAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.checkBoxBold.FlatAppearance.CheckedBackColor = System.Drawing.Color.Gray;
-            this.checkBoxBold.FlatStyle = System.Windows.Forms.FlatStyle.System;
+            this.checkBoxBold.FlatAppearance.BorderSize = 0;
+            this.checkBoxBold.FlatAppearance.CheckedBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(177)))), ((int)(((byte)(177)))), ((int)(((byte)(177)))));
+            this.checkBoxBold.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(197)))), ((int)(((byte)(197)))), ((int)(((byte)(197)))));
+            this.checkBoxBold.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.checkBoxBold.Font = new System.Drawing.Font("Microsoft JhengHei UI Light", 10F, System.Drawing.FontStyle.Bold);
             this.checkBoxBold.Location = new System.Drawing.Point(189, 60);
             this.checkBoxBold.Name = "checkBoxBold";
-            this.checkBoxBold.Size = new System.Drawing.Size(32, 28);
+            this.checkBoxBold.Size = new System.Drawing.Size(28, 28);
             this.checkBoxBold.TabIndex = 1;
             this.checkBoxBold.Text = "Ж";
             this.checkBoxBold.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.toolTip9.SetToolTip(this.checkBoxBold, "Сделать полужирный текст.");
-            this.checkBoxBold.UseVisualStyleBackColor = true;
+            this.checkBoxBold.UseVisualStyleBackColor = false;
+            this.checkBoxBold.Click += new System.EventHandler(this.FontSelectorComboBox_SelectedIndexChanged);
             // 
             // CopyButton
             // 
@@ -419,6 +429,7 @@
             this.FontSelectorComboBox.Size = new System.Drawing.Size(124, 23);
             this.FontSelectorComboBox.TabIndex = 2;
             this.toolTip7.SetToolTip(this.FontSelectorComboBox, "Выбор нового шрифта.");
+            this.FontSelectorComboBox.SelectionChangeCommitted += new System.EventHandler(this.FontSelectorComboBox_SelectedIndexChanged);
             // 
             // PasteButton
             // 
@@ -649,7 +660,7 @@
             // настройкиToolStripMenuItem
             // 
             this.настройкиToolStripMenuItem.Name = "настройкиToolStripMenuItem";
-            this.настройкиToolStripMenuItem.Size = new System.Drawing.Size(150, 22);
+            this.настройкиToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.настройкиToolStripMenuItem.Text = "&Настройки";
             this.настройкиToolStripMenuItem.Click += new System.EventHandler(this.настройкиToolStripMenuItem_Click);
             // 
@@ -658,31 +669,47 @@
             this.параметрыToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.цветToolStripMenuItem});
             this.параметрыToolStripMenuItem.Name = "параметрыToolStripMenuItem";
-            this.параметрыToolStripMenuItem.Size = new System.Drawing.Size(150, 22);
+            this.параметрыToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.параметрыToolStripMenuItem.Text = "&Параметры";
             // 
             // цветToolStripMenuItem
             // 
             this.цветToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.белыйToolStripMenuItem,
-            this.черныйToolStripMenuItem});
+            this.whiteColorMenuItem,
+            this.blackThemeMenuItem,
+            this.BackColorSelector,
+            this.BackColorPickerMenuItem});
             this.цветToolStripMenuItem.Name = "цветToolStripMenuItem";
-            this.цветToolStripMenuItem.Size = new System.Drawing.Size(108, 22);
+            this.цветToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.цветToolStripMenuItem.Text = "Цвет";
             // 
-            // белыйToolStripMenuItem
+            // whiteColorMenuItem
             // 
-            this.белыйToolStripMenuItem.Name = "белыйToolStripMenuItem";
-            this.белыйToolStripMenuItem.Size = new System.Drawing.Size(127, 22);
-            this.белыйToolStripMenuItem.Text = "Белый";
-            this.белыйToolStripMenuItem.Click += new System.EventHandler(this.белыйToolStripMenuItem_Click);
+            this.whiteColorMenuItem.Name = "whiteColorMenuItem";
+            this.whiteColorMenuItem.Size = new System.Drawing.Size(209, 22);
+            this.whiteColorMenuItem.Text = "Белый";
+            this.whiteColorMenuItem.Click += new System.EventHandler(this.белыйToolStripMenuItem_Click);
             // 
-            // черныйToolStripMenuItem
+            // blackThemeMenuItem
             // 
-            this.черныйToolStripMenuItem.Name = "черныйToolStripMenuItem";
-            this.черныйToolStripMenuItem.Size = new System.Drawing.Size(127, 22);
-            this.черныйToolStripMenuItem.Text = "Черный";
-            this.черныйToolStripMenuItem.Click += new System.EventHandler(this.черныйToolStripMenuItem_Click);
+            this.blackThemeMenuItem.Name = "blackThemeMenuItem";
+            this.blackThemeMenuItem.Size = new System.Drawing.Size(209, 22);
+            this.blackThemeMenuItem.Text = "Черный";
+            this.blackThemeMenuItem.Click += new System.EventHandler(this.черныйToolStripMenuItem_Click);
+            // 
+            // BackColorSelector
+            // 
+            this.BackColorSelector.Name = "BackColorSelector";
+            this.BackColorSelector.Size = new System.Drawing.Size(209, 22);
+            this.BackColorSelector.Text = "Выбрать цвет окна";
+            this.BackColorSelector.Click += new System.EventHandler(this.BackColorPickerMenuItem_Click);
+            // 
+            // BackColorPickerMenuItem
+            // 
+            this.BackColorPickerMenuItem.Name = "BackColorPickerMenuItem";
+            this.BackColorPickerMenuItem.Size = new System.Drawing.Size(209, 22);
+            this.BackColorPickerMenuItem.Text = "Выбрать цвет текста";
+            this.BackColorPickerMenuItem.Click += new System.EventHandler(this.ForeColorPickerMenuItem_Click);
             // 
             // справкаToolStripMenuItem
             // 
@@ -700,7 +727,7 @@
             this.содержаниеToolStripMenuItem.Name = "содержаниеToolStripMenuItem";
             this.содержаниеToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.содержаниеToolStripMenuItem.Text = "&Содержание";
-            this.содержаниеToolStripMenuItem.Click += new System.EventHandler(this.содержаниеToolStripMenuItem_Click);
+            this.содержаниеToolStripMenuItem.Click += new System.EventHandler(this.ShowHelpMenuMenuButton_Click);
             // 
             // toolStripSeparator5
             // 
@@ -712,7 +739,7 @@
             this.опрограммеToolStripMenuItem.Name = "опрограммеToolStripMenuItem";
             this.опрограммеToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
             this.опрограммеToolStripMenuItem.Text = "&О программе...";
-            this.опрограммеToolStripMenuItem.Click += new System.EventHandler(this.опрограммеToolStripMenuItem_Click);
+            this.опрограммеToolStripMenuItem.Click += new System.EventHandler(this.AboutMenuButton_Click);
             // 
             // panel5
             // 
@@ -821,7 +848,6 @@
             this.panel4.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.panel3.ResumeLayout(false);
-            this.panel3.PerformLayout();
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.panel5.ResumeLayout(false);
@@ -881,8 +907,8 @@
         private System.Drawing.Printing.PrintDocument PrintDocumentElement;
         private System.Windows.Forms.PrintDialog PrintDialogElement;
         private System.Windows.Forms.ToolStripMenuItem цветToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem белыйToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem черныйToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem whiteColorMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem blackThemeMenuItem;
         private System.Windows.Forms.CheckBox checkBoxUnderline;
         private System.Windows.Forms.CheckBox checkBoxItalic;
         private System.Windows.Forms.CheckBox checkBoxBold;
@@ -900,6 +926,8 @@
         private System.Windows.Forms.ToolTip toolTip12;
         private System.Windows.Forms.ToolTip toolTip13;
         private System.Windows.Forms.ToolTip toolTip14;
+        private System.Windows.Forms.ToolStripMenuItem BackColorPickerMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem BackColorSelector;
     }
 }
 

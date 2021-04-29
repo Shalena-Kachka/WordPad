@@ -25,7 +25,7 @@ namespace MiniWordPad
         public MainForm()
         {
             InitializeComponent();
-            InicializeFonts();
+            InitializeFonts();
         }
 
         /// <summary>
@@ -339,94 +339,53 @@ namespace MiniWordPad
 
         private void настройкиToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            try
-            {
-                if (IsOpened) //Если файл уже был открыт, просто сохранить по пути (проверив существование директории)
-                {
-                    var dirPath = OpenedDocumentPath.Substring(0, OpenedDocumentPath.LastIndexOf(Path.DirectorySeparatorChar) + 1);
-                    Directory.CreateDirectory(dirPath); //Если каталог не существует - создать
-
-                    RichTextBoxEditor.SaveFile(OpenedDocumentPath,
-                        OpenedDocumentPath.EndsWith(".rtf") ? RichTextBoxStreamType.RichText : RichTextBoxStreamType.PlainText); //Если .rtf, сохранить с форматированием
-                }
-                else //Файл новый, значит вызвать диалог для сохранения
-                {
-                    using (SaveFileDialog saveFileDialog = new SaveFileDialog())
-                    {
-                        saveFileDialog.InitialDirectory = DefaultSaveDirectory;
-                        saveFileDialog.Filter = "Текст с форматированием (*.rtf)|*.rtf|Простой текст (*.txt)|*.txt|Все файлы (*.*)|*.*";
-                        saveFileDialog.FilterIndex = 1;
-                        saveFileDialog.RestoreDirectory = true;
-
-                        if (saveFileDialog.ShowDialog() == DialogResult.OK)
-                        {
-                            var dirPath = saveFileDialog.FileName.Substring(0, saveFileDialog.FileName.LastIndexOf(Path.DirectorySeparatorChar) + 1);
-                            Directory.CreateDirectory(dirPath); //Если каталог не существует - создать
-
-                            RichTextBoxEditor.SaveFile(saveFileDialog.FileName,
-                                saveFileDialog.FileName.EndsWith(".rtf") ? RichTextBoxStreamType.RichText : RichTextBoxStreamType.PlainText); //Если .rtf, сохранить с форматированием
-
-                            OpenedDocumentPath = saveFileDialog.FileName;
-                            IsOpened = true;
-                            UpdatePath();
-                        }
-                    }
-                }
-            }
-            catch (Exception ex)
-            {
-
-            }
+            //Тут была копия кода "Сохранить как"
         }
 
         //Изменение цвета MainForm
-
         private void белыйToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            this.BackColor = Color.White;
-            if (this.BackColor == Color.White)
-            {
-                FileNameLabel.ForeColor = Color.Black;
-                CloseWindowButton.ForeColor = Color.Black;
-                MaximizeWindowButton.ForeColor = Color.Black;
-                MinimizeWindowButton.ForeColor = Color.Black;
-                RedoButton.ForeColor = Color.Black;
-                UndoButton.ForeColor = Color.Black;
-                SaveButton.ForeColor = Color.Black;
-            }
-
-
+            BackColor = Color.White;
+            ForeColor = Color.Black;
         }
 
         //Изменение цвета MainForm
         private void черныйToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            this.BackColor = Color.Black;
-            if (this.BackColor == Color.Black)
-            {
-                FileNameLabel.ForeColor = Color.White;
-                CloseWindowButton.ForeColor = Color.White;
-                MaximizeWindowButton.ForeColor = Color.White;
-                MinimizeWindowButton.ForeColor = Color.White;
-                RedoButton.ForeColor = Color.White;
-                UndoButton.ForeColor = Color.White;
-                SaveButton.ForeColor = Color.White;
-            }
+            BackColor = Color.Black;
+            ForeColor = Color.White;
+        }
 
+        private void BackColorPickerMenuItem_Click(object sender, EventArgs e)
+        {
+            using(ColorDialog colorDialog = new ColorDialog())
+            {
+                if(colorDialog.ShowDialog() == DialogResult.OK)
+                    BackColor = colorDialog.Color;
+            }
+        }
+
+        private void ForeColorPickerMenuItem_Click(object sender, EventArgs e)
+        {
+            using (ColorDialog colorDialog = new ColorDialog())
+            {
+                if (colorDialog.ShowDialog() == DialogResult.OK)
+                    ForeColor = colorDialog.Color;
+            }
         }
 
         Rectangle BottomCursor { get { return new Rectangle(0, this.ClientSize.Height - _, this.ClientSize.Width, _); } }
         Rectangle RightCursor { get { return new Rectangle(this.ClientSize.Width - _, 0, _, this.ClientSize.Height); } }
 
         //о программе
-        private void опрограммеToolStripMenuItem_Click(object sender, EventArgs e)
+        private void AboutMenuButton_Click(object sender, EventArgs e)
         {
             AboutBox1 aboutBox = new AboutBox1();
             aboutBox.Show();
         }
         
         // вывод справки
-        private void содержаниеToolStripMenuItem_Click(object sender, EventArgs e)
+        private void ShowHelpMenuMenuButton_Click(object sender, EventArgs e)
         {
             Help.ShowHelp(this, "help.chm");//засунул help.chm в bin/Debug
         }
@@ -459,9 +418,9 @@ namespace MiniWordPad
         #endregion
 
         /// <summary>
-        ///метод запонения шрифтов и размеров
+        /// Метод запонения шрифтов и размеров
         /// </summary>
-        private void InicializeFonts()
+        private void InitializeFonts()
         {
             FontFamily[] fontList = new System.Drawing.Text.InstalledFontCollection().Families;
             foreach (var item in fontList)            
@@ -476,27 +435,35 @@ namespace MiniWordPad
            
         }
 
+        private int GetFontIndex(string name)
+        {
+            return _FontsName.IndexOf(name);
+        }
+
+        private void FontSelectorComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            RichTextBoxEditor.SelectionFont = new Font
+            (
+                FontSelectorComboBox.SelectedItem.ToString(),
+                (float)FontSizeComboBox.SelectedItem,
+                (
+                    (checkBoxBold.Checked ? FontStyle.Bold : 0) |
+                    (checkBoxItalic.Checked ? FontStyle.Italic : 0) |
+                    (checkBoxUnderline.Checked ? FontStyle.Underline : 0)
+                )
+            );
+        }
 
         private void RichTextBoxEditor_SelectionChanged(object sender, EventArgs e)
         {
-            if (checkBoxBold.Checked == false && checkBoxItalic.Checked==false && checkBoxUnderline.Checked == false)
-                RichTextBoxEditor.SelectionFont = new Font(FontSelectorComboBox.SelectedItem.ToString(), (float)FontSizeComboBox.SelectedItem);
-            if (checkBoxBold.Checked == true && checkBoxItalic.Checked == false && checkBoxUnderline.Checked == false)
-                RichTextBoxEditor.SelectionFont = new Font(FontSelectorComboBox.SelectedItem.ToString(), (float)FontSizeComboBox.SelectedItem, FontStyle.Bold);
-            if (checkBoxBold.Checked == false && checkBoxItalic.Checked == true && checkBoxUnderline.Checked == false)
-                RichTextBoxEditor.SelectionFont = new Font(FontSelectorComboBox.SelectedItem.ToString(), (float)FontSizeComboBox.SelectedItem, FontStyle.Italic);
-            if (checkBoxBold.Checked == false && checkBoxItalic.Checked == false && checkBoxUnderline.Checked == true)
-                RichTextBoxEditor.SelectionFont = new Font(FontSelectorComboBox.SelectedItem.ToString(), (float)FontSizeComboBox.SelectedItem, FontStyle.Underline);
-           
-            if (checkBoxBold.Checked == false && checkBoxItalic.Checked == true && checkBoxUnderline.Checked == true)
-                RichTextBoxEditor.SelectionFont = new Font(FontSelectorComboBox.SelectedItem.ToString(), (float)FontSizeComboBox.SelectedItem, (FontStyle.Underline | FontStyle.Italic));
-            if (checkBoxBold.Checked == true && checkBoxItalic.Checked == false && checkBoxUnderline.Checked == true)
-                RichTextBoxEditor.SelectionFont = new Font(FontSelectorComboBox.SelectedItem.ToString(), (float)FontSizeComboBox.SelectedItem, (FontStyle.Underline | FontStyle.Bold));
-            if (checkBoxBold.Checked == true && checkBoxItalic.Checked == true && checkBoxUnderline.Checked == false)
-                RichTextBoxEditor.SelectionFont = new Font(FontSelectorComboBox.SelectedItem.ToString(), (float)FontSizeComboBox.SelectedItem, (FontStyle.Bold | FontStyle.Italic));
-            if (checkBoxBold.Checked == true && checkBoxItalic.Checked == true && checkBoxUnderline.Checked == true)
-                RichTextBoxEditor.SelectionFont = new Font(FontSelectorComboBox.SelectedItem.ToString(), (float)FontSizeComboBox.SelectedItem, (FontStyle.Bold | FontStyle.Italic | FontStyle.Underline));
+            if (RichTextBoxEditor.SelectionFont != null) {
+                checkBoxBold.Checked = RichTextBoxEditor.SelectionFont.Bold;
+                checkBoxItalic.Checked = RichTextBoxEditor.SelectionFont.Italic;
+                checkBoxUnderline.Checked = RichTextBoxEditor.SelectionFont.Underline;
 
+                FontSelectorComboBox.SelectedIndex = GetFontIndex(RichTextBoxEditor.SelectionFont.FontFamily.Name);
+                FontSizeComboBox.SelectedItem = RichTextBoxEditor.SelectionFont.Size;
+            }
         }
     }
 }
